@@ -1,12 +1,12 @@
 import React from 'react'
-import ReachLanding from './components/Landingpage'
 import Navbar from './components/global/Navbar'
+import Hero from './components/homepage/Hero'
 
 export default function page() {
   return (
     <div>
       <Navbar />
-      {/* <ReachLanding /> */}
+      <Hero />
     </div>
   )
 }
