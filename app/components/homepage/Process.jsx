@@ -23,22 +23,22 @@ export default function Process() {
     {
       title: "Research & Vision",
       description:
-        "We begin by understanding context, constraints, and ambition—using research and insight to frame a clear direction.",
+        "We start by understanding your needs, analyzing the site, and using AI-driven climate insights to ensure the design aligns with sustainability, cultural context, and functionality.",
     },
     {
       title: "Concept & Design",
       description:
-        "Ideas are explored through sketching, modeling, and simulation, balancing creativity with responsibility.",
+        "We explore ideas through sketches, 3D models, and AI-powered simulations, balancing innovation with environmental responsibility to craft meaningful, future-proof spaces.",
     },
     {
       title: "Refinement & Documentation",
       description:
-        "Designs are developed with precision using BIM, drawings, and visualizations to ensure clarity and buildability.",
+        "Using BIM, high-fidelity renderings, and technical drawings, we finalize every detail—ensuring that the design is buildable, efficient, and ready for execution.",
     },
     {
       title: "Build & Implement",
       description:
-        "We collaborate closely through execution, aligning design intent with construction for well-resolved spaces.",
+        "We collaborate with contractors and use drone mapping, AI site analysis, and sustainability-focused construction to bring the design to life with precision and efficiency.",
     },
   ];
 
@@ -56,10 +56,13 @@ export default function Process() {
         {/* Right */}
         <div className="w-full md:w-2/3">
           <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10">
-            Guided by principles that remain constant from concept to completion.
+            Guided by principles that remain constant from concept to completion...
           </h3>
-
-          <Swiper
+        </div>
+        
+      </div>
+       <div className="max-w-7xl mx-auto mt-10">
+        <Swiper
             grabCursor
             spaceBetween={32}
             slidesPerView={1.15}
@@ -71,7 +74,7 @@ export default function Process() {
             {process.map((item, i) => (
               <SwiperSlide key={i}>
                 <div className="h-full bg-neutral-100 rounded-2xl p-8 flex flex-col gap-6">
-                  <span className="text-sm font-medium opacity-50">
+                  <span className="text-6xl font-extralight opacity-80">
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
@@ -79,15 +82,15 @@ export default function Process() {
                     {item.title}
                   </h4>
 
-                  <p className="text-base leading-relaxed opacity-80">
+                  <p className="text-base leading-relaxed">
                     {item.description}
                   </p>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
       </div>
+     
     </section>
   );
 }
