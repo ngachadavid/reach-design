@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import AnimatedH2 from "../global/AnimatedH2";
+import DividerArrow from "../global/DividerArrow";
 
 export default function Process() {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,7 +44,7 @@ export default function Process() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white text-black px-4 2xl:px-0 py-20"
+      className="bg-white text-black px-4 2xl:px-0 pt-20"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -81,6 +82,7 @@ export default function Process() {
           ))}
         </div>
       </div>
+      <DividerArrow isVisible={isVisible} />
     </section>
   );
 }
