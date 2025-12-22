@@ -1,6 +1,6 @@
 export default function AnimatedH2({ children, isVisible, className = "" }) {
   return (
-    <h2 className={`text-4xl font-bold leading-none tracking-tight ${className}`}>
+    <h2 className={`text-3xl font-bold leading-none tracking-tight ${className}`}>
       {children.split("").map((char, index) => (
         <span
           key={index}

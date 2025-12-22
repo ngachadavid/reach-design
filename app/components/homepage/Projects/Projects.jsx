@@ -9,16 +9,16 @@ const projects = [
     handle: "muthaiga"
   },
   {
-    name: "Chuna House",
+    name: "Chuna Estate Residence",
     handle: "chuna"
   },
   {
-    name: "A Frame Cabins",
+    name: "A Frame Houses",
     handle: "a_frame"
   }
 ]
 
-export default function Home() {
+export default function Projects() {
 
   useEffect( () => {
     const lenis = new Lenis()
@@ -32,7 +32,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="w-full">
+    <main className="w-full py-20">
       {
         projects.map( ({handle, name}, i) => {
           return <Gallery handle={handle} name={name} key={i}/>

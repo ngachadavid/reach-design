@@ -1,7 +1,8 @@
 'use client';
 import { useState, useEffect, useRef } from "react";
-import AnimatedH2 from "../global/AnimatedH2";
-import DividerArrow from "../global/DividerArrow";
+import AnimatedH2 from "../../global/AnimatedH2";
+import DividerArrow from "../../global/DividerArrow";
+import Projects from "./Projects";
 
 export default function ProjectsIntro() {
   const [isVisible, setIsVisible] = useState(false);
@@ -62,7 +63,7 @@ export default function ProjectsIntro() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white text-black px-4 2xl:px-0 pb-20"
+      className="bg-white text-black px-4 2xl:px-0"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-start">
         {/* Left */}
@@ -71,12 +72,13 @@ export default function ProjectsIntro() {
         </div>
 
         {/* Right */}
-        <div className="w-full md:w-2/3 flex flex-col gap-3">
-          <h3 className="text-4xl font-bold tracking-tight">
+        <div className="w-full md:w-2/3 flex flex-col gap-3 mt-6">
+          <h3 className="text-5xl font-extrabold tracking-tight">
             {description}
           </h3>
         </div>
       </div>
+      <Projects />
     </section>
   );
 }
