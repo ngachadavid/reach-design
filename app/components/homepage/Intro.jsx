@@ -1,9 +1,9 @@
 'use client';
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import DividerArrow2 from "../global/DividerArrow2";
 
-
 export default function About() {
+    const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
 
     useEffect(() => {

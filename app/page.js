@@ -5,6 +5,7 @@ import About from './components/homepage/About'
 import Intro from './components/homepage/Intro'
 import ProjectsIntro from './components/homepage/Projects/ProjectsIntro'
 import Process from './components/homepage/Process'
+import FeaturedArticles from './components/homepage/FeaturedArticles'
 
 export default function page() {
   return (
@@ -15,6 +16,7 @@ export default function page() {
       <Intro />
       <ProjectsIntro />
       <Process />
+      <FeaturedArticles />
     </div>
   )
 }

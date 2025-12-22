@@ -54,7 +54,7 @@ export default function Process() {
 
           <div className="w-full md:w-2/3">
             <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-              Guided by principles that remain constant from concept to completion.
+              Guided by principles that remain constant from concept to completion...
             </h3>
           </div>
         </div>
