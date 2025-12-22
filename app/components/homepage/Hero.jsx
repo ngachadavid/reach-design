@@ -8,11 +8,11 @@ export default function Hero() {
     >
 
       {/* Bottom-left text */}
-      <div className="absolute bottom-12 left-16 max-w-xl text-white">
-        <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+      <div className="absolute bottom-12 left-16 text-white">
+        <h1 className="text-4xl md:text-7xl leading-tight font-bold ">
           Designing the Future:
         </h1>
-        <p className="mt-4 text-lg md:text-xl leading-relaxed">
+        <p className="mt-2 text-2xl md:text-4xl font-semibold leading-relaxed">
           Sustainable, Smart, and Culturally Rooted Architecture
         </p>
       </div>

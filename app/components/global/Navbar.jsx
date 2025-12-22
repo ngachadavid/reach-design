@@ -6,7 +6,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 z-50 w-full px-16 py-8 flex items-center justify-between text-black">
+    <nav className="fixed top-0 z-50 w-full px-16 py-8 flex items-center justify-between text-white">
       {/* Logo */}
       <div className="text-lg font-semibold tracking-wider">
         REACH
@@ -24,7 +24,7 @@ export default function Navbar() {
             <span
               className="
                 absolute left-0 top-1/2 -translate-y-1/2
-                h-5 w-3 bg-black
+                h-5 w-3 bg-white
                 transition-all duration-300 ease-out
                 group-hover:w-full
               "
@@ -35,7 +35,7 @@ export default function Navbar() {
               className="
                 relative z-10 pl-4
                 transition-colors duration-300
-                group-hover:text-white
+                group-hover:text-black
               "
             >
               {label}
