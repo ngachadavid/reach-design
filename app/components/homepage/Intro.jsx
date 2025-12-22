@@ -1,23 +1,59 @@
+'use client';
+import { useEffect, useRef } from "react";
 import DividerArrow2 from "../global/DividerArrow2";
 
-export default function Intro() {
-  return (
-    <section className="bg-white text-black px-4 2xl:px-0 pt-0 pb-20">
-      <div className="max-w-3xl mx-auto">
-        <h3 className="text-4xl font-bold">
-          Using a process built around you
-        </h3>
 
-        <p className="mt-6 text-lg md:text-xl leading-relaxed tracking-tight w-full md:w-[80%]">
-          We begin by listening—understanding
-          your needs, context, and ambitions—then combine research, sustainable
-          thinking, and emerging technologies to shape thoughtful, responsive
-          architecture. Every decision is guided by clarity, collaboration, and
-          a commitment to designing spaces that endure.
-        </p>
+export default function About() {
+    const sectionRef = useRef(null);
 
-        <DividerArrow2 />
-      </div>
-    </section>
-  );
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) setIsVisible(true);
+            },
+            { threshold: 0.3 }
+        );
+
+        if (sectionRef.current) observer.observe(sectionRef.current);
+        return () => sectionRef.current && observer.unobserve(sectionRef.current);
+    }, []);
+
+    return (
+        <section ref={sectionRef} className="bg-white text-black px-4 2xl:px-0 pt-0 pb-20">
+            <div className="max-w-3xl mx-auto">
+                <h3 className="text-4xl font-bold">Using a process built around you</h3>
+
+                <p className="mt-6 text-lg md:text-xl leading-relaxed tracking-tight w-full md:w-[80%]">
+                    We begin by listening—understanding your needs, context, and ambitions—then combine research, sustainable
+                    thinking, and emerging technologies to shape thoughtful, responsive
+                    architecture. Every decision is guided by clarity, collaboration, and
+                    a commitment to designing spaces that endure.
+                </p>
+            </div>
+            <DividerArrow2 />
+        </section>
+    );
 }
+
+
+// 'use client';
+// import useInView from '@/app/hooks/useInView';
+
+// export default function Intro() {
+//   const [sectionRef, isVisible] = useInView(0.3);
+
+//   return (
+//     <section ref={sectionRef} className="bg-white text-black px-4 2xl:px-0 pt-0 pb-20">
+//       <div className="max-w-3xl mx-auto">
+//         <h3 className="text-4xl font-bold">Using a process built around you</h3>
+
+//         <p className="mt-6 text-lg md:text-xl leading-relaxed tracking-tight w-full md:w-[80%]">
+//           We begin by listening—understanding your needs, context, and ambitions—then combine research, sustainable
+//           thinking, and emerging technologies to shape thoughtful, responsive
+//           architecture. Every decision is guided by clarity, collaboration, and
+//           a commitment to designing spaces that endure.
+//         </p>
+//       </div>
+//     </section>
+//   );
+// }

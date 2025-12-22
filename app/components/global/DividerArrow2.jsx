@@ -6,9 +6,9 @@ export default function DividerArrow2() {
   return (
     <div className="w-full flex justify-center py-20 bg-white text-black">
       <svg
-        width="200"
-        height="200"
-        viewBox="0 0 225 263"
+        width="170"
+        height="160"
+        viewBox="0 0 200 200"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="overflow-visible"
