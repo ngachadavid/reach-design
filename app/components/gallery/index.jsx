@@ -5,7 +5,7 @@ export default function index({mousePosition, handle}) {
   const { x, y } = mousePosition;
   
   return (
-    <div className="h-[120vh]" style={{clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 0)'}}>
+    <div className="h-screen" style={{clipPath: 'polygon(0 0, 0 100%, 100% 100%, 100% 0)'}}>
         <div className="w-full h-full relative">
             <img
                 key={`${handle}-background`} 
@@ -15,12 +15,12 @@ export default function index({mousePosition, handle}) {
             />
         </div>
         <motion.div
-         className="h-[30vw] w-[25vw] fixed top-0 rounded-[1.5vw] overflow-hidden"
+         className="h-[25vw] w-[30vw] fixed top-0 rounded-[1.5vw] overflow-hidden"
          style={{x, y}}
          >
           <img
             key={`${handle}-1`}  
-            src={`/images/${handle}/1.jpg`}
+            src={`/images/${handle}/1.avif`}
             alt="image"
             className="w-full h-full object-cover"
           />

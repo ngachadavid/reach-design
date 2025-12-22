@@ -6,16 +6,16 @@ import Gallery from '@/app/components/gallery';
 
 const projects = [
   {
-    name: "Dyal Thak",
-    handle: "dyal_thak"
+    name: "Chuna House",
+    handle: "chuna"
   },
   {
-    name: "Mark Rammers",
-    handle: "mark_rammers"
+    name: "A_Frame Cabin",
+    handle: "a_frame"
   },
   {
-    name: "Landon Speers",
-    handle: "landon_speers"
+    name: "Muthaiga Residence",
+    handle: "muthaiga"
   }
 ]
 
