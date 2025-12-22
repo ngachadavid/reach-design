@@ -1,5 +1,4 @@
 'use client';
-import styles from './style.module.scss'
 import Lenis from '@studio-freight/lenis'
 import { useEffect } from 'react';
 import { useSpring } from 'framer-motion';
@@ -53,7 +52,7 @@ export default function Home() {
   }
 
   return (
-    <main onMouseMove={mouseMove} className={styles.main}>
+    <main onMouseMove={mouseMove} className="w-full">
       {
         projects.map( ({handle}, i) => {
           return <Gallery mousePosition={mousePosition} handle={handle} key={i}/>
