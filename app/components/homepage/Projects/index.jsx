@@ -6,16 +6,16 @@ import Gallery from '@/app/components/gallery';
 
 const projects = [
   {
+    name: "Muthaiga Residence",
+    handle: "muthaiga"
+  },
+  {
     name: "Chuna House",
     handle: "chuna"
   },
   {
     name: "A_Frame Cabin",
     handle: "a_frame"
-  },
-  {
-    name: "Muthaiga Residence",
-    handle: "muthaiga"
   }
 ]
 

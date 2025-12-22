@@ -9,7 +9,7 @@ export default function index({mousePosition, handle}) {
         <div className="w-full h-full relative">
             <img
                 key={`${handle}-background`} 
-                src={`/images/${handle}/background.jpg`}
+                src={`/images/${handle}/background.webp`}
                 alt="image"
                 className="w-full h-full object-cover"
             />
