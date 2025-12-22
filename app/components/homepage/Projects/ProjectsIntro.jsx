@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from "react";
 import AnimatedH2 from "../../global/AnimatedH2";
-import DividerArrow from "../../global/DividerArrow";
 import Projects from "./Projects";
 
 export default function ProjectsIntro() {

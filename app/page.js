@@ -2,9 +2,9 @@ import React from 'react'
 import Navbar from './components/global/Navbar'
 import Hero from './components/homepage/Hero'
 import About from './components/homepage/About'
-import Projects from './components/homepage/Projects/Projects'
 import Intro from './components/homepage/Intro'
 import ProjectsIntro from './components/homepage/Projects/ProjectsIntro'
+import Process from './components/homepage/Process'
 
 export default function page() {
   return (
@@ -14,7 +14,7 @@ export default function page() {
       <About />
       <Intro />
       <ProjectsIntro />
-      {/* <Projects /> */}
+      <Process />
     </div>
   )
 }
