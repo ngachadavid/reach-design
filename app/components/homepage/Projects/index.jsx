@@ -1,7 +1,6 @@
 'use client';
 import Lenis from '@studio-freight/lenis'
 import { useEffect } from 'react';
-import { useSpring } from 'framer-motion';
 import Gallery from '@/app/components/gallery';
 
 const projects = [
@@ -14,23 +13,12 @@ const projects = [
     handle: "chuna"
   },
   {
-    name: "A_Frame Cabin",
+    name: "A Frame Cabins",
     handle: "a_frame"
   }
 ]
 
 export default function Home() {
-
-  const spring = {
-    stiffness: 150,
-    damping: 15,
-    mass: 0.1
-  }
-
-  const mousePosition = {
-    x: useSpring(0, spring),
-    y: useSpring(0, spring)
-  }
 
   useEffect( () => {
     const lenis = new Lenis()
@@ -43,22 +31,13 @@ export default function Home() {
     requestAnimationFrame(raf)
   }, [])
 
-  const mouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const targetX = clientX - (window.innerWidth / 2 * 0.25);
-    const targetY = clientY - (window.innerWidth / 2 * 0.30);
-    mousePosition.x.set(targetX);
-    mousePosition.y.set(targetY);
-  }
-
   return (
-    <main onMouseMove={mouseMove} className="w-full">
+    <main className="w-full">
       {
-        projects.map( ({handle}, i) => {
-          return <Gallery mousePosition={mousePosition} handle={handle} key={i}/>
+        projects.map( ({handle, name}, i) => {
+          return <Gallery handle={handle} name={name} key={i}/>
         })
       }
-      {/* <Description mousePosition={mousePosition} projects={projects}/> */}
     </main>
   )
 }
