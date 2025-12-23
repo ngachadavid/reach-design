@@ -17,29 +17,66 @@ export const projects = [
       "/projects/mes.avif",
       "/projects/mes2.avif",
     ],
-    description: "A modern commercial building in the heart of the city",
-    location: "Nairobi, Kenya"
+    description: "We used the latest architectural and interior design techniques to create this masterpiece.",
+    projectFacts: {
+      Location: "Kigali, Rwanda",
+      "Site Area": "411 m2",
+      "No of Stories": "1",
+    },
   },
   {
     title: "Chuna Estate Residence",
-    image: "/images/chuna/background.webp",
+    image: "/projects/chuna.avif",
+     images: [
+      "/projects/chuna1.avif",
+      "/projects/chuna2.avif",
+      "/projects/chuna3.avif",
+      "/projects/chuna4.avif",
+      "/projects/chuna5.avif",
+    ],
     description: "Luxury residential estate with modern amenities",
-    year: "2023",
-    location: "Chuna, Nairobi"
+     projectFacts: {
+      Location: "Kitengela, Machakos",
+      "Site Area": "1290 m2",
+      "No of Stories": "2",
+      Service: "Architecture",
+    },
   },
   {
     title: "A Frame House",
     image: "/images/a_frame/background.webp",
     description: "Contemporary A-frame design with panoramic views",
-    year: "2023",
-    location: "Nairobi County"
+    projectFacts: {
+      Location: "Nairobi County",
+      Year: "2023",
+    },
   },
   {
     title: "Muthaiga Residence",
     image: "/images/muthaiga/background.webp",
     description: "Elegant family home in prestigious Muthaiga",
-    year: "2022",
-    location: "Muthaiga, Nairobi"
+    projectFacts: {
+      Location: "Ridgeways, Nairobi",
+      "Site Area": "345 m2",
+      "No of Stories": "5",
+      Service: "Architecture",
+    },
+  },
+   {
+    title: "Garden Estate",
+    image: "/projects/gard4.avif",
+    images: [
+      "/projects/gard3.avif",
+      "/projects/gard.avif",
+      "/projects/gard1.avif",
+    ],
+    description: "Elegant family home in prestigious Muthaiga",
+    projectFacts: {
+      Location: "Ridgeways, Nairobi",
+      "Site Area": "345 m2",
+      "No of Stories": "5",
+      Service: "Architecture",
+    },
   },
 ];
 

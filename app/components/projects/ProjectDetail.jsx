@@ -21,15 +21,17 @@ export default function ProjectDetail() {
 
   const project = getProjectBySlug(slug);
 
+  if (!project) {
+    notFound();
+  }
+
   useEffect(() => {
     if (!project) return;
 
-    // Only run on desktop (md and above)
-    if (window.innerWidth < 768) return;
+    if (window.innerWidth < 768) return; // only run on desktop
 
     const container = containerRef.current;
     const horizontal = horizontalRef.current;
-
     if (!container || !horizontal) return;
 
     const scrollWidth = horizontal.scrollWidth;
@@ -64,13 +66,9 @@ export default function ProjectDetail() {
     router.back();
   };
 
-  if (!project) {
-    notFound();
-  }
-
   return (
     <>
-      {/* Top bar - Fixed */}
+      {/* Top bar */}
       <div className="fixed top-8 md:top-4 left-4 md:left-8 right-4 md:right-8 flex justify-between items-center z-50">
         <Link href="/">
           <HousePlus className="h-6 md:h-8 w-6 md:w-8 text-white cursor-pointer drop-shadow-lg" />
@@ -80,17 +78,15 @@ export default function ProjectDetail() {
         </button>
       </div>
 
-      {/* Mobile: Vertical scroll, Desktop: Horizontal scroll */}
       <div className="bg-black text-white">
-        
-        {/* Mobile version - normal vertical layout */}
+        {/* Mobile vertical scroll */}
         <div className="2xl:hidden min-h-screen">
           {/* Main hero image */}
-          <div className="flex items-center justify-center px- py-20">
+          <div className="flex items-center justify-center py-20 px-4">
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover rounded-lg"
             />
           </div>
 
@@ -99,12 +95,19 @@ export default function ProjectDetail() {
             <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-4">
               {project.title}
             </h1>
+
             <div className="space-y-2 text-sm text-gray-300 mb-6">
-              <p><span className="text-white font-semibold">Location:</span> {project.location}</p>
-              <p><span className="text-white font-semibold">Year:</span> {project.year}</p>
-              <p><span className="text-white font-semibold">Category:</span> {project.category}</p>
+              {project.projectFacts &&
+                Object.entries(project.projectFacts).map(([key, value]) => (
+                  <p key={key}>
+                    <span className="text-white font-semibold">{key}:</span> {value}
+                  </p>
+                ))}
             </div>
-            <p className="text-sm md:text-base leading-relaxed text-gray-200">{project.description}</p>
+
+            <p className="text-sm md:text-base leading-relaxed text-gray-200">
+              {project.description}
+            </p>
           </div>
 
           {/* Image gallery */}
@@ -113,7 +116,7 @@ export default function ProjectDetail() {
               <img
                 src={img}
                 alt={`${project.title} - Image ${idx + 1}`}
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover rounded-lg"
               />
             </div>
           ))}
@@ -121,44 +124,45 @@ export default function ProjectDetail() {
           <div className="h-32" />
         </div>
 
-        {/* Desktop version - horizontal scroll */}
+        {/* Desktop horizontal scroll */}
         <div ref={containerRef} className="hidden 2xl:block relative h-screen overflow-hidden">
           <div ref={horizontalRef} className="flex h-full">
-            
-            {/* Section 1: Main hero image */}
-            <div className="shrink-0 h-screen flex items-center justify-center w-screen">
+            {/* Main hero image */}
+            <div className="shrink-0 h-screen flex items-center justify-center w-screen pt-20">
               <img
                 src={project.image}
                 alt={project.title}
-                className="h-[85vh] w-auto object-cover"
+                className="h-full w-auto object-cover rounded-lg"
               />
             </div>
 
-            {/* Section 2: Project details */}
+            {/* Project details */}
             <div className="shrink-0 h-screen flex items-center justify-center px-16 bg-black" style={{ width: '50vw' }}>
               <div className="max-w-2xl text-white">
                 <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
                   {project.title}
                 </h1>
+
                 <div className="space-y-3 text-base text-gray-300 mb-6">
-                  <p><span className="text-white font-semibold">Location:</span> {project.location}</p>
-                  <p><span className="text-white font-semibold">Year:</span> {project.year}</p>
-                  <p><span className="text-white font-semibold">Category:</span> {project.category}</p>
+                  {project.projectFacts &&
+                    Object.entries(project.projectFacts).map(([key, value]) => (
+                      <p key={key}>
+                        <span className="text-white font-semibold">{key}:</span> {value}
+                      </p>
+                    ))}
                 </div>
+
                 <p className="text-lg leading-relaxed text-gray-200">{project.description}</p>
               </div>
             </div>
 
-            {/* Section 3+: Image gallery */}
+            {/* Image gallery */}
             {project.images && project.images.map((img, idx) => (
-              <div
-                key={idx}
-                className="shrink-0 h-screen flex items-center justify-center w-screen"
-              >
+              <div key={idx} className="shrink-0 h-screen flex items-center justify-center w-screen pt-20">
                 <img
                   src={img}
                   alt={`${project.title} - Image ${idx + 1}`}
-                  className="h-[85vh] w-auto object-cover"
+                  className="h-full w-auto object-cover rounded-lg"
                 />
               </div>
             ))}
