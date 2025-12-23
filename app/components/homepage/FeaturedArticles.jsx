@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import AnimatedH2 from "../global/AnimatedH2";
+import Button from "../global/Button";
 
 const articles = [
   {
@@ -85,6 +86,8 @@ export default function FeaturedArticles() {
           ))}
         </div>
       </div>
+
+      <Button />
     </section>
   );
 }
