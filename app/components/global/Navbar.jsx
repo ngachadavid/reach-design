@@ -1,21 +1,23 @@
+import Link from "next/link";
+
 export default function Navbar() {
   const navLinks = [
-    { label: "PROJECTS", href: "#projects" },
-    { label: "ABOUT US", href: "#about" },
-    { label: "CONTACT", href: "#contact" },
+    { label: "PROJECTS", href: "/projects" },
+    { label: "ABOUT US", href: "/about" },
+    { label: "CONTACT", href: "/contact" },
   ];
 
   return (
     <nav className="fixed top-0 z-50 w-full px-16 py-8 flex items-center justify-between text-white">
       {/* Logo */}
-      <div className="text-lg font-semibold tracking-wider">
+      <Link href="/" className="text-lg font-semibold tracking-wider">
         REACH
-      </div>
+      </Link>
 
       {/* Navigation Links */}
       <div className="flex gap-12 text-sm tracking-wider">
         {navLinks.map(({ label, href }) => (
-          <a
+          <Link
             key={label}
             href={href}
             className="group relative flex items-center pr-4"
@@ -40,7 +42,7 @@ export default function Navbar() {
             >
               {label}
             </span>
-          </a>
+          </Link>
         ))}
       </div>
     </nav>
