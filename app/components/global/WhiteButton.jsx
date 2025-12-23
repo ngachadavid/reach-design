@@ -1,6 +1,6 @@
 'use client';
 
-export default function WhiteButton({ text = "Submit", href = "#" }) {
+export default function WhiteButton({ text = "Submit Info", href = "#" }) {
   return (
     <a href={href} className="relative inline-block cursor-pointer group overflow-visible">
       {/* Animated fill background */}

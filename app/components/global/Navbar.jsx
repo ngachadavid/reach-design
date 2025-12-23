@@ -12,23 +12,51 @@ export default function Navbar() {
 
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isDark, setIsDark] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY && currentScrollY > 80) {
-        setHidden(true); // scrolling down
+        setHidden(true);
       } else {
-        setHidden(false); // scrolling up
+        setHidden(false);
       }
 
+      setScrolled(currentScrollY > 50);
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section');
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const isBlackSection = entry.target.classList.contains('bg-black');
+            setIsDark(isBlackSection);
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: '-100px 0px 0px 0px'
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
 
   const navLinks = [
     { label: "PROJECTS", href: "/projects" },
@@ -49,9 +77,11 @@ export default function Navbar() {
   return (
     <nav
       className={`
-        fixed top-0 z-50 w-full px-16 py-2 flex items-center justify-between text-white
-        transition-transform duration-300 ease-in-out
+        fixed top-0 z-50 w-full px-16 py-2 flex items-center justify-between
+        transition-all duration-500 ease-in-out
         ${hidden ? "-translate-y-full" : "translate-y-0"}
+        ${isDark ? "text-white" : "text-black"}
+        ${scrolled ? (isDark ? "bg-black/10 backdrop-blur-sm shadow-sm" : "bg-white/10 backdrop-blur-sm shadow-sm") : ""}
       `}
     >
       {/* Logo */}
@@ -77,21 +107,21 @@ export default function Navbar() {
           >
             {/* Expanding background */}
             <span
-              className="
+              className={`
                 absolute left-0 top-1/2 -translate-y-1/2
-                h-5 w-3 bg-white
-                transition-all duration-300 ease-out
+                h-5 w-3 transition-all duration-300 ease-out
                 group-hover:w-full
-              "
+                ${isDark ? "bg-white" : "bg-black"}
+              `}
             />
 
             {/* Text */}
             <span
-              className="
+              className={`
                 relative z-10 pl-4
                 transition-colors duration-300
-                group-hover:text-black
-              "
+                ${isDark ? "group-hover:text-black" : "group-hover:text-white"}
+              `}
             >
               {label}
             </span>
