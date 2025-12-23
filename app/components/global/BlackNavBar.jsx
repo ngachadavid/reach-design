@@ -1,70 +1,78 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 // import { useRouter } from "next/navigation";
 // import { usePageTransition } from "@/app/providers/PageTransitionProvider";
 
 export default function BlackNavbar() {
-  // const router = useRouter();
-  // const { startTransition } = usePageTransition();
+    // const router = useRouter();
+    // const { startTransition } = usePageTransition();
 
-  const navLinks = [
-    { label: "PROJECTS", href: "/projects" },
-    { label: "ABOUT US", href: "/about" },
-    { label: "CONTACT", href: "/contact" },
-  ];
+    const navLinks = [
+        { label: "PROJECTS", href: "/projects" },
+        { label: "ABOUT US", href: "/about" },
+        { label: "CONTACT", href: "/contact" },
+    ];
 
-  /*
-  const handleNav = (href) => (e) => {
-    e.preventDefault();
+    /*
+    const handleNav = (href) => (e) => {
+      e.preventDefault();
+  
+      startTransition(() => {
+        router.push(href);
+      });
+    };
+    */
 
-    startTransition(() => {
-      router.push(href);
-    });
-  };
-  */
+    return (
+        <nav className="fixed top-0 z-50 w-full px-16 py-8 flex items-center justify-between text-black">
+            {/* Logo */}
+            <Link
+                href="/"
+                className="flex items-center"
+            >
+                <Image
+                    src="/images/logo1.webp"
+                    alt="Reach Logo"
+                    width={120}
+                    height={40}
+                    className="h-20 w-auto"
+                    priority
+                />
+            </Link>
 
-  return (
-    <nav className="fixed top-0 z-50 w-full px-16 py-8 flex items-center justify-between text-black">
-      {/* Logo */}
-      <Link
-        href="/"
-        className="text-lg font-semibold tracking-wider"
-      >
-        REACH
-      </Link>
-
-      {/* Navigation Links */}
-      <div className="flex gap-12 text-sm tracking-wider">
-        {navLinks.map(({ label, href }) => (
-          <Link
-            key={label}
-            href={href}
-            className="group relative flex items-center pr-4"
-          >
-            {/* Expanding background */}
-            <span
-              className="
+            {/* Navigation Links */}
+            <div className="flex gap-12 text-sm tracking-wider">
+                {navLinks.map(({ label, href }) => (
+                    <Link
+                        key={label}
+                        href={href}
+                        className="group relative flex items-center pr-4"
+                    >
+                        {/* Expanding background */}
+                        <span
+                            className="
                 absolute left-0 top-1/2 -translate-y-1/2
                 h-5 w-3 bg-black
                 transition-all duration-300 ease-out
                 group-hover:w-full
               "
-            />
+                        />
 
-            {/* Text */}
-            <span
-              className="
+                        {/* Text */}
+                        <span
+                            className="
                 relative z-10 pl-4
                 transition-colors duration-300
                 group-hover:text-white
               "
-            >
-              {label}
-            </span>
-          </Link>
-        ))}
-      </div>
-    </nav>
-  );
+                        >
+                            {label}
+                        </span>
+                    </Link>
+                ))}
+            </div>
+        </nav>
+    );
 }
