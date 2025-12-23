@@ -9,12 +9,12 @@ const projects = [
     handle: "muthaiga"
   },
   {
-    name: "Chuna Estate Residence",
-    handle: "chuna"
+    name: "Pan African Residence",
+    handle: "pan_african"
   },
   {
-    name: "A Frame Houses",
-    handle: "a_frame"
+    name: "Chuna Estate Residence",
+    handle: "chuna"
   }
 ]
 

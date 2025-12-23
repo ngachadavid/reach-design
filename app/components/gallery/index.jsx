@@ -7,7 +7,7 @@ export default function index({handle, name}) {
         <div className="w-full h-full relative">
             <img
                 key={`${handle}-background`} 
-                src={`/images/${handle}/background.webp`}
+                src={`/images/${handle}/background.avif`}
                 alt="image"
                 className="w-full h-full object-cover"
             />
