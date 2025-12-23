@@ -1,5 +1,3 @@
-// lib/projects.js
-
 // Helper function to create slugs
 export const slugify = (text) => {
   return text
@@ -14,6 +12,11 @@ export const projects = [
   {
     title: "Mespomolitan Building",
     image: "/projects/mes.avif",
+    images: [
+      "/projects/mes2.avif",
+      "/projects/mes.avif",
+      "/projects/mes2.avif",
+    ],
     description: "A modern commercial building in the heart of the city",
     location: "Nairobi, Kenya"
   },
