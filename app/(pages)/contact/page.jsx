@@ -1,3 +1,4 @@
+import Address from '@/app/components/contact/Address'
 import ContactHero from '@/app/components/contact/ContactHero'
 import Contact from '@/app/components/global/Contact'
 import Navbar from '@/app/components/global/Navbar'
@@ -8,6 +9,7 @@ export default function page() {
     <div>
         <Navbar />
         <ContactHero />
+        <Address />
         <Contact />
     </div>
   )

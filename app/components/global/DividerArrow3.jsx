@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function DividerArrow3() {
   return (
-    <div className="w-full flex justify-center py-20 bg-black text-white">
+    <div className="w-full flex justify-center py-20 bg-white text-black">
       <svg
         width="170"
         height="160"
