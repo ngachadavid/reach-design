@@ -16,7 +16,7 @@ export default function page() {
       <Intro />
       <ProjectsIntro />
       <Process />
-      <FeaturedArticles />
+      <FeaturedArticles />  
     </div>
   )
 }

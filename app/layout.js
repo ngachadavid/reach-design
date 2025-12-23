@@ -1,5 +1,6 @@
 import { Work_Sans, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import Footer from "./components/global/Footer";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         className={`${workSans.variable} ${cormorantGaramond.variable} antialiased`}
       >
         {children}
+          <Footer />
       </body>
     </html>
   );
