@@ -16,13 +16,15 @@ export default function index({handle, name}) {
         </div>
         
         {/* Project Name on the left */}
-        <div className="fixed left-[5vw] top-1/2 -translate-y-1/2 text-white z-10">
-          <h2 className="text-7xl font-extrabold tracking-tight">{name}</h2>
-        </div>
+        <div className="fixed left-[5vw] top-1/2 -translate-y-1/2 text-white z-10 w-[90vw] md:w-auto">
+  <h2 className="text-xl md:text-7xl font-extrabold tracking-tight wrap-break-word whitespace-normal">
+    {name}
+  </h2>
+</div>
 
         {/* Vignette on the right */}
         <div
-         className="h-[25vw] w-[30vw] fixed top-1/2 right-[5vw] -translate-y-1/2 rounded-[1.5vw] overflow-hidden"
+         className="h-[40vw] md:h-[25vw] w-[40vw] md:w-[30vw] fixed top-1/2 right-[5vw] -translate-y-1/2 rounded-[1.5vw] overflow-hidden"
          >
           <img
             key={`${handle}-1`}  
