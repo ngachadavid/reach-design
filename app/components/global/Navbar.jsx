@@ -1,12 +1,12 @@
 'use client';
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { usePageTransition } from "@/app/providers/PageTransitionProvider";
+// import { useRouter } from "next/navigation";
+// import { usePageTransition } from "@/app/providers/PageTransitionProvider";
 
 export default function Navbar() {
-  const router = useRouter();
-  const { startTransition } = usePageTransition();
+  // const router = useRouter();
+  // const { startTransition } = usePageTransition();
 
   const navLinks = [
     { label: "PROJECTS", href: "/projects" },
@@ -14,6 +14,7 @@ export default function Navbar() {
     { label: "CONTACT", href: "/contact" },
   ];
 
+  /*
   const handleNav = (href) => (e) => {
     e.preventDefault();
 
@@ -21,13 +22,13 @@ export default function Navbar() {
       router.push(href);
     });
   };
+  */
 
   return (
     <nav className="fixed top-0 z-50 w-full px-16 py-8 flex items-center justify-between text-white">
       {/* Logo */}
       <Link
         href="/"
-        onClick={handleNav("/")}
         className="text-lg font-semibold tracking-wider"
       >
         REACH
@@ -39,7 +40,6 @@ export default function Navbar() {
           <Link
             key={label}
             href={href}
-            onClick={handleNav(href)}
             className="group relative flex items-center pr-4"
           >
             {/* Expanding background */}
