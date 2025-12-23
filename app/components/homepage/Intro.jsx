@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef } from "react";
 import DividerArrow2 from "../global/DividerArrow2";
+import Button from "../global/Button";
 
 export default function About() {
     const [isVisible, setIsVisible] = useState(false);
@@ -29,7 +30,11 @@ export default function About() {
                     architecture. Every decision is guided by clarity, collaboration, and
                     a commitment to designing spaces that endure.
                 </p>
+                <div className="w-full md:w-[80%] flex justify-center mt-6">
+                    <Button text="Contact Us" href="/contact" />
+                </div>
             </div>
+
             <DividerArrow2 />
         </section>
     );

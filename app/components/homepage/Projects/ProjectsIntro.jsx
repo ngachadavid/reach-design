@@ -2,11 +2,12 @@
 import { useState, useEffect, useRef } from "react";
 import AnimatedH2 from "../../global/AnimatedH2";
 import Projects from "./Projects";
+import Button from "../../global/Button";
 
 export default function ProjectsIntro() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef(null);
+  const headerRef = useRef(null);  // Changed from sectionRef
   const statementsRef = useRef([]);
 
   // init refs
@@ -19,11 +20,11 @@ export default function ProjectsIntro() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 }  // Lowered threshold
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => sectionRef.current && observer.unobserve(sectionRef.current);
+    if (headerRef.current) observer.observe(headerRef.current);
+    return () => headerRef.current && observer.unobserve(headerRef.current);
   }, []);
 
   useEffect(() => {
@@ -54,30 +55,30 @@ export default function ProjectsIntro() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const text = "(Selected Projects)";
-
-  const description =
-    "...and we work with you to make it yours.";
-
   return (
-    <section
-      ref={sectionRef}
-      className="bg-white text-black px-4 2xl:px-0"
-    >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-start">
-        {/* Left */}
-        <div className="w-full md:w-1/3">
-          <AnimatedH2 isVisible={isVisible}>{text}</AnimatedH2>
-        </div>
+    <section className="bg-white text-black pb-20">
+      {/* Header - constrained width */}
+      <div ref={headerRef} className="max-w-7xl mx-auto px-4 2xl:px-0">
+        <div className="flex flex-col md:flex-row gap-12 items-start mb-16">
+          <div className="w-full md:w-1/3">
+            <AnimatedH2 isVisible={isVisible}>(Selected Projects)</AnimatedH2>
+          </div>
 
-        {/* Right */}
-        <div className="w-full md:w-2/3 flex flex-col gap-3 mt-6">
-          <h3 className="text-5xl font-extrabold tracking-tight">
-            {description}
-          </h3>
+          <div className="w-full md:w-2/3">
+            <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+              ...and we work with you to make it yours.
+            </h3>
+          </div>
         </div>
       </div>
+
+      {/* Projects - full width */}
       <Projects />
+
+      {/* Button - centered */}
+      <div className="flex justify-center mt-10">
+        <Button text="See More Projects" href="/projects" />
+      </div>
     </section>
   );
 }

@@ -1,17 +1,36 @@
 'use client';
 
-import { motion } from "framer-motion";
-
-export default function Button() {
+export default function Button({ text = "How It Works", href = "#" }) {
   return (
-    <motion.div 
-      className="relative inline-block bg-white px-4 py-3 border-2 border-black rounded-3xl cursor-pointer group"
-      whileHover={{ backgroundColor: "#000000", borderColor: "#ffffff" }}
-      transition={{ duration: 0.3 }}
-    >
-      <span className="relative text-black font-normal text-lg group-hover:text-white transition-colors duration-300">
-        How It Works
-      </span>
-    </motion.div>
+    <a href={href} className="relative inline-block cursor-pointer group overflow-visible">
+      {/* Animated fill background */}
+      <div className="absolute inset-0 overflow-hidden rounded-3xl">
+        <div 
+          className="absolute inset-0 bg-black origin-bottom transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)]"
+          style={{
+            transform: 'scaleY(0)',
+            clipPath: 'inset(0 0 0 0 round 24px)',
+          }}
+          ref={(el) => {
+            if (el) {
+              const parent = el.parentElement.parentElement;
+              parent.addEventListener('mouseenter', () => {
+                el.style.transform = 'scaleY(1)';
+              });
+              parent.addEventListener('mouseleave', () => {
+                el.style.transform = 'scaleY(0)';
+              });
+            }
+          }}
+        />
+      </div>
+      
+      {/* Button content */}
+      <div className="relative bg-transparent px-4 py-3 border-2 border-black rounded-3xl">
+        <span className="relative text-black font-normal text-lg transition-colors duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:text-white z-10">
+          {text}
+        </span>
+      </div>
+    </a>
   );
 }
