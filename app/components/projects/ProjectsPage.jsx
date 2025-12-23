@@ -19,7 +19,7 @@ export default function ProjectsPage() {
                 href={`/projects/${slug}`}
                 className="group cursor-pointer block"
               >
-                <div className="relative overflow-hidden transition-all duration-300 ease-out group-hover:rounded-sm">
+                <div className="relative overflow-hidden transition-all duration-300 ease-out group-hover:rounded-lg">
                   <img
                     src={project.image}
                     alt={project.title}
