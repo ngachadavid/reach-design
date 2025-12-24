@@ -7,16 +7,23 @@ export default function Footer() {
                     {/* Column 1 - Navigation */}
                     <div>
                          <h3 className="text-xl font-extrabold tracking-tight mb-4">REACH DESIGN STUDIOS</h3>
-                        <nav className="flex flex-col gap-4">
+                        <nav className="flex flex-col gap-3">
                             <a href="/projects" className="text-sm md:text-base tracking-wider hover:opacity-60 transition-opacity">
                                 Our Projects
                             </a>
                             <a href="/about" className="text-sm md:text-base tracking-wider hover:opacity-60 transition-opacity">
-                                About Us
+                                Our Team
+                            </a>
+                            <a href="/about" className="text-sm md:text-base tracking-wider hover:opacity-60 transition-opacity">
+                                Careers
                             </a>
                             <a href="/contact" className="text-sm md:text-base tracking-wider hover:opacity-60 transition-opacity">
                                 Contact
                             </a>
+                             <a href="/contact" className="text-sm md:text-base tracking-wider hover:opacity-60 transition-opacity">
+                                Expertise
+                            </a>
+
                         </nav>
                     </div>
 
@@ -27,10 +34,16 @@ export default function Footer() {
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">
                                 Instagram
                             </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">
+                            <a href="https://www.linkedin.com/company/reach-design-studio/" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">
                                 LinkedIn
                             </a>
-                            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">
+                            <a href="https://www.youtube.com/@TheMillenialArchitect" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">
+                                YouTube
+                            </a>
+                             <a href="https://www.facebook.com/ReachStudio.ke" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">
+                                Facebook
+                            </a>
+                            <a href="https://www.pinterest.com/reachstudiokenya/" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">
                                 Pinterest
                             </a>
                         </nav>
@@ -57,7 +70,7 @@ export default function Footer() {
                             <a href="mailto:architect@reachdesignstudio.com" className="hover:opacity-60 transition-opacity">
                                 architect@reachdesignstudio.com
                             </a>
-                            <p className="leading-relaxed">
+                            <p className="leading-relaxed mt-4">
                                 Reach Design Studios<br />
                                 Apic Center,
                                 Muthithi Road,Westlands,

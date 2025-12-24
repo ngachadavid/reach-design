@@ -1,3 +1,4 @@
+import CTA from '@/app/components/global/CTA'
 import Footer from '@/app/components/global/Footer'
 import Navbar from '@/app/components/global/Navbar'
 import ProjectsPage from '@/app/components/projects/ProjectsPage'
@@ -8,6 +9,7 @@ export default function page() {
     <div>
         <Navbar />
         <ProjectsPage />
+        <CTA />
         <Footer />
     </div>
   )
