@@ -18,36 +18,6 @@ export default function AboutHero() {
     return () => sectionRef.current && observer.unobserve(sectionRef.current);
   }, []);
 
-  const contents = [
-    {
-      title: "A New Vision for African Architecture",
-      description: "For too long, architecture in Africa has been shaped by imported ideas that often ignore the realities of our climate, our people, and our ways of life. We are here to redefine what African architecture can be—an architecture that is:",
-      points: [
-        { label: "Culturally Rooted", text: "Drawing from Africa's diverse traditions, materials, and indigenous design principles." },
-        { label: "Climate-Responsive", text: "Harnessing passive design, local materials, and AI-driven environmental insights to create sustainable buildings that work with, not against, their surroundings." },
-        { label: "Technology-Driven", text: "Leveraging AI, drones, and advanced visualization tools to push African architecture into the future while staying true to its essence." }
-      ]
-    },
-    {
-      title: "A Bridge Between Past and Future",
-      description: "entally respo",
-      points: [
-        { label: "Timeless", text: "Built with respect for traditional craftsmanship and local knowledge that has shaped our environments for centuries." },
-        { label: "Forward-Thinking", text: "Integrating modern construction methods, smart building systems, and sustainable practices." },
-        { label: "Community-Centered", text: "Designed to strengthen social bonds and reflect the values of the people who will inhabit them." }
-      ]
-    },
-    {
-      title: "Innovation with Purpose",
-      description: "Technology should serve people and place. Every tool we use—from AI climate analysis to drone surveying—is deployed with intention to create architecture that:",
-      points: [
-        { label: "Responds to Context", text: "Understanding site conditions, local climate patterns, and cultural context before the first line is drawn." },
-        { label: "Maximizes Efficiency", text: "Reducing waste, optimizing energy use, and choosing materials that make sense for African conditions." },
-        { label: "Inspires Change", text: "Demonstrating that world-class, sustainable architecture can be achieved without compromising identity or affordability." }
-      ]
-    }
-  ];
-
   return (
     <section
       ref={sectionRef}
@@ -57,32 +27,61 @@ export default function AboutHero() {
         {/* Header */}
         <div className="flex flex-col md:flex-row gap-12 items-start mt-10 mb-16">
           {/* Sticky Title */}
-          <div className="w-full md:w-1/3 md:sticky md:top-32">
+          <div className="w-full md:w-[40%] md:sticky md:top-32">
             <AnimatedH2 isVisible={isVisible}>(Who We Are)</AnimatedH2>
-            <div>
+            <div className="mt-10">
               <StackedImages />
             </div>
           </div>
 
           {/* Content - Scrollable */}
-          <div className="w-full md:w-2/3 space-y-20">
-            {contents.map((content, idx) => (
-              <div key={idx}>
-                <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-                  {content.title}
-                </h3>
-                <p className="mt-6 text-2xl md:text-xl leading-relaxed tracking-tight">
-                  {content.description}
-                </p>
-                <ul className="mt-4 list-disc list-inside space-y-3 text-base md:text-lg">
-                  {content.points.map((point, pointIdx) => (
-                    <li key={pointIdx}>
-                      <span className="font-bold">{point.label}</span> – {point.text}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="w-full md:w-[60%] space-y-20">
+            
+            {/* Section 1: A New Vision for African Architecture */}
+            <div>
+              <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+                A New Vision for African Architecture
+              </h3>
+              <p className="mt-6 text-lg md:text-xl leading-relaxed tracking-tight">
+                For too long, architecture in Africa has been shaped by imported ideas that often ignore the realities of our climate, our people, and our ways of life. We are here to redefine what African architecture can be—an architecture that is:
+              </p>
+              <ul className="mt-4 list-disc list-inside space-y-3 text-base md:text-lg">
+                <li>
+                  <span className="font-bold">Culturally Rooted</span> – Drawing from Africa's diverse traditions, materials, and indigenous design principles.
+                </li>
+                <li>
+                  <span className="font-bold">Climate-Responsive</span> – Harnessing passive design, local materials, and AI-driven environmental insights to create sustainable buildings that work with, not against, their surroundings.
+                </li>
+                <li>
+                  <span className="font-bold">Technology-Driven</span> – Leveraging AI, drones, and advanced visualization tools to push African architecture into the future while staying true to its essence.
+                </li>
+              </ul>
+            </div>
+
+            {/* Section 2: A Bridge Between Past and Future */}
+            <div>
+              <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+                A Bridge Between Past and Future
+              </h3>
+              <p className="mt-6 text-lg md:text-xl leading-relaxed tracking-tight">
+                We see ourselves as the link between Africa’s architectural heritage and its technological future. Our work honors the wisdom of traditional African spaces, integrating them with modern solutions that make buildings smarter, more efficient, and environmentally responsible.
+              </p>
+            </div>
+
+            {/* Section 3: Innovation with Purpose */}
+            <div>
+              <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight">
+                Innovation with Purpose
+              </h3>
+              <p className="mt-6 text-lg md:text-xl leading-relaxed tracking-tight">
+                We are not just building structures—we are building a movement. A movement that embraces progress without erasing identity, that champions sustainability without compromising beauty, and that uses technology to amplify, not replace, African ingenuity.
+              </p>
+              <p className="mt-6 text-lg md:text-xl leading-relaxed tracking-tight">
+                By redefining how architecture is approached on the continent, we are paving the way for a future where African cities and spaces are designed for Africans, by Africans, using the best of both tradition and innovation.
+              </p>
+             
+            </div>
+
           </div>
         </div>
       </div>

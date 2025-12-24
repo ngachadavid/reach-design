@@ -9,18 +9,18 @@ const StackedImages = () => {
       rotation: -10,
       translateX: 5,
       translateY: -5,
-      zIndex: 1
+      zIndex: 2
     },
     {
-      src: '/projects/gard.avif',
+      src: '/images/draw.avif',
       alt: 'Image 2',
       rotation: -2,
       translateX: -26,
       translateY: -26,
-      zIndex: 2
+      zIndex: 1
     },
     {
-      src: '/projects/mes.avif',
+      src: '/images/int.avif',
       alt: 'Image 3',
       rotation: 6,
       translateX: 15,
