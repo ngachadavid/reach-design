@@ -74,29 +74,23 @@ export default function FeaturedArticles() {
                 {/* Articles grid */}
                 <div className="grid md:grid-cols-3 gap-8">
                     {articles.map((article, idx) => (
-                        <div
-                            key={idx}
-                            className="group bg-white cursor-pointer overflow-hidden rounded-xl shadow-lg"
-                        >
+                        <div key={idx} className="group bg-white cursor-pointer" >
                             {/* Image */}
-                            <div className="overflow-hidden h-96">
+                            <div className="overflow-hidden">
                                 <img
                                     src={article.image}
                                     alt={article.title}
-                                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-                                />
+                                    className="w-full h-96 object-cover transition-all duration-500 group-hover:h-80" />
                             </div>
-
                             {/* Content */}
                             <div className="p-4">
                                 <h4 className="text-lg font-bold mb-1">{article.title}</h4>
                                 <p className="text-sm text-gray-500 mb-2">{article.date}</p>
-                                <p className="text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                    {article.description}
-                                </p>
-                            </div>
-                        </div>
-                    ))}
+                                <p className="text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500"> {article.description}
+                                </p> 
+                                </div> 
+                                </div>
+                            ))}
                 </div>
             </div>
 
