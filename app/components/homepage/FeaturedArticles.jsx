@@ -30,25 +30,38 @@ export default function FeaturedArticles() {
     const sectionRef = useRef(null);
 
     useEffect(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+
         const observer = new IntersectionObserver(
-            ([entry]) => entry.isIntersecting && setIsVisible(true),
-            { threshold: 0.3 }
+            ([entry]) => {
+                if (entry.isIntersecting) setIsVisible(true);
+            },
+            {
+                threshold: window.innerWidth < 768 ? 0.1 : 0.3,
+                rootMargin: "0px 0px -50px 0px",
+            }
         );
 
-        if (sectionRef.current) observer.observe(sectionRef.current);
-        return () => sectionRef.current && observer.unobserve(sectionRef.current);
+        observer.observe(section);
+
+        return () => {
+            if (section) observer.unobserve(section);
+        };
     }, []);
 
     return (
         <section
             ref={sectionRef}
-            className="bg-white text-black px-4 2xl:px-0 py-20"
+            className="bg-white text-black px-4 2xl:px-0 py-20 min-h-[60vh]"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row gap-12 items-start mb-16">
                     <div className="w-full md:w-1/3">
-                        <AnimatedH2 isVisible={isVisible}>(Featured Articles)</AnimatedH2>
+                        <AnimatedH2 isVisible={isVisible}>
+                            (Featured Articles)
+                        </AnimatedH2>
                     </div>
 
                     <div className="w-full md:w-2/3">
@@ -63,14 +76,14 @@ export default function FeaturedArticles() {
                     {articles.map((article, idx) => (
                         <div
                             key={idx}
-                            className="group bg-white  cursor-pointer"
+                            className="group bg-white cursor-pointer overflow-hidden rounded-xl shadow-lg"
                         >
                             {/* Image */}
-                            <div className="overflow-hidden">
+                            <div className="overflow-hidden h-96">
                                 <img
                                     src={article.image}
                                     alt={article.title}
-                                    className="w-full h-96 object-cover transition-all duration-500 group-hover:h-80"
+                                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                                 />
                             </div>
 
@@ -87,7 +100,7 @@ export default function FeaturedArticles() {
                 </div>
             </div>
 
-            <div className="flex justify-center mt-2">
+            <div className="flex justify-center mt-12">
                 <Button text="Read More Articles" href="/contact" />
             </div>
         </section>
