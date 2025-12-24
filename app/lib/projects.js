@@ -96,7 +96,7 @@ export const projects = [
   },
   {
     title: "A Frame House",
-    image: "/images/a_frame/background.webp",
+    image: "/projects/aframe.avif",
     description: "Contemporary A-frame design with panoramic views",
     projectFacts: {
       Location: "Nairobi County",
