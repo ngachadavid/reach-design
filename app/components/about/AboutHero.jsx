@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import AnimatedH2 from "../global/AnimatedH2";
+import StackedImages from "../global/StackedImages";
 
 export default function AboutHero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -58,6 +59,9 @@ export default function AboutHero() {
           {/* Sticky Title */}
           <div className="w-full md:w-1/3 md:sticky md:top-32">
             <AnimatedH2 isVisible={isVisible}>(Who We Are)</AnimatedH2>
+            <div>
+              <StackedImages />
+            </div>
           </div>
 
           {/* Content - Scrollable */}
