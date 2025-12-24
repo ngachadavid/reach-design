@@ -1,4 +1,5 @@
 import AboutHero from '@/app/components/about/AboutHero'
+import Application from '@/app/components/about/ApplicationForm'
 import Careers from '@/app/components/about/Careers'
 import Positions from '@/app/components/about/Positions'
 import Footer from '@/app/components/global/Footer'
@@ -12,6 +13,7 @@ export default function page() {
         <AboutHero />
         <Careers />
         <Positions />
+        <Application />
         <Footer />
     </div>
   )
