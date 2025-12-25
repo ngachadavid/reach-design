@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const StackedSection = () => {
   const [images] = useState([
     {
-      src: '/images/reach3.webp',
+      src: '/images/rreach.webp',
       alt: 'Image 1',
       rotation: -10,
       translateX: 5,
@@ -12,7 +12,7 @@ const StackedSection = () => {
       zIndex: 2
     },
     {
-      src: '/images/draw.avif',
+      src: '/images/reach1.webp',
       alt: 'Image 2',
       rotation: -2,
       translateX: -26,
@@ -20,7 +20,7 @@ const StackedSection = () => {
       zIndex: 1
     },
     {
-      src: '/images/int.avif',
+      src: '/images/reach.webp',
       alt: 'Image 3',
       rotation: 6,
       translateX: 15,
