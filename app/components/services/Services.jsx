@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import AnimatedH2 from "../global/AnimatedH2";
+import Button from "../global/Button";
 
 const services = [
   {
@@ -65,7 +66,6 @@ const services = [
       "We create high-quality architectural visualizations that bring designs to life before construction begins. Through detailed renders and immersive animations, we help clients and stakeholders clearly experience the intended space."
   }
 ];
-
 
 export default function Services() {
   const [isVisible, setIsVisible] = useState(false);
@@ -166,7 +166,7 @@ export default function Services() {
                     }`}
                   >
                     {/* Image */}
-                    <div className="w-72 h-80 overflow-hidden rounded-lg shadow-lg">
+                    <div className="w-72 h-80 overflow-hidden shadow-lg z-50">
                       <img
                         src={service.image}
                         alt={service.title}
@@ -185,6 +185,9 @@ export default function Services() {
           ))}
         </div>
       </div>
+       <div className="flex justify-center mt-10 z-0">
+                      <Button text="See Portfolio" href="/projects" />
+                  </div>
     </section>
   );
 }
