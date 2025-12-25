@@ -7,7 +7,7 @@ export default function ServicesHero() {
     <section className="bg-white text-black px-4 2xl:px-0 pt-32 pb-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight w-full md:w-[70%] text-center mx-auto mt-10">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight w-full md:w-[70%] text-center mx-auto">
           Discover the services that turn your architectural dreams into tangible spaces.
         </h1>
 

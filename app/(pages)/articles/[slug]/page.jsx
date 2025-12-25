@@ -1,4 +1,3 @@
-// /app/articles/[slug]/page.js
 import React from "react";
 import { articles } from "@/app/lib/articles";
 import Navbar from "@/app/components/global/Navbar";
@@ -12,7 +11,7 @@ export default async function BlogPost({ params }) {
     return (
       <>
         <Navbar />
-        <main className="max-w-4xl mx-auto px-4 py-40">
+        <main className="max-w-4xl mx-auto px-4 py-32">
           <p className="text-xl text-center">Article not found</p>
         </main>
         <Footer />
@@ -23,9 +22,9 @@ export default async function BlogPost({ params }) {
   return (
     <>
       <Navbar />
-      <main className="max-w-4xl mx-auto px-4 py-40">
+      <main className="max-w-4xl mx-auto px-4 py-32">
         {/* Article Header */}
-        <h1 className="text-4xl font-bold mb-4">{article.title}</h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">{article.title}</h1>
         <p className="text-gray-500 mb-8">{article.date}</p>
 
         {/* Article Image */}

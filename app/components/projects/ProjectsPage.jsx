@@ -6,7 +6,7 @@ export default function ProjectsPage() {
   return (
     <section className="bg-white text-black px-4 2xl:px-0 pt-32 pb-32">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight w-full md:w-[70%] mt-10 mb-24">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight w-full md:w-[70%] mb-24">
           Selected projects that met our clients' lot conditions, lifestyle, and budget.
         </h1>
 

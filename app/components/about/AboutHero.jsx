@@ -21,7 +21,7 @@ export default function AboutHero() {
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col md:flex-row gap-12 items-start mt-10 mb-16">
+        <div className="flex flex-col md:flex-row gap-12 items-start mb-16">
           {/* Sticky Title */}
           <div className="w-full md:w-[50%] 2xl:w-[40%] md:sticky md:top-32">
             <AnimatedH2 isVisible={isVisible}>(Who We Are)</AnimatedH2>

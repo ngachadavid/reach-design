@@ -4,10 +4,10 @@ import DividerArrow3 from "../global/DividerArrow3";
 
 export default function ContactHero() {
   return (
-    <section className="bg-white text-black px-4 2xl:px-0 pt-20 md:pt-32 pb-10">
+    <section className="bg-white text-black px-4 2xl:px-0 pt-32 pb-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight w-full md:w-[70%] text-center mx-auto mt-10">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight w-full md:w-[70%] text-center mx-auto">
           Reach out to discuss your vision and how we can bring it to life together.
         </h1>
 
