@@ -2,28 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import AnimatedH2 from "../global/AnimatedH2";
-import Button from "../global/Button";
-
-const articles = [
-    {
-        image: "/articles/dira.avif",
-        title: "The Role of AI in Architecture: A Look at Dirah AI | Climatic Design App",
-        description: "AI is transforming architecture by enabling climate-driven design decisions, improving efficiency, and supporting sustainable and adaptive built environments.",
-        date: "Aug 08, 2025"
-    },
-    {
-        image: "/articles/bio.avif",
-        title: "The Role of Technology in Architecture: AI, Drones & Beyond",
-        description: "Emerging technologies like AI and drones are redefining architecture workflows, enhancing precision, visualization, and collaboration in modern design projects.",
-        date: "Jan 01, 2025"
-    },
-    {
-        image: "/articles/kerara.avif",
-        title: "Climate-Responsive Architecture: The Future of Sustainable Design",
-        description: "Climate-responsive design prioritizes environmental context, energy efficiency, and adaptive solutions to create architecture that responds to local ecosystems.",
-        date: "Nov 11, 2024"
-    },
-];
+import Link from "next/link";
+import { articles } from "@/app/lib/articles"; // ✅ central source of truth
 
 export default function FeaturedArticles() {
     const [isVisible, setIsVisible] = useState(false);
@@ -50,6 +30,14 @@ export default function FeaturedArticles() {
         };
     }, []);
 
+    // Helper function to extract plain text from HTML content
+    const getPreview = (content) => {
+        if (!content) return "";
+        // Strip HTML tags and get first 150 characters
+        const text = content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+        return text.length > 150 ? text.substring(0, 150) + '...' : text;
+    };
+
     return (
         <section
             ref={sectionRef}
@@ -74,28 +62,31 @@ export default function FeaturedArticles() {
                 {/* Articles grid */}
                 <div className="grid md:grid-cols-3 gap-4 2xl:gap-8">
                     {articles.map((article, idx) => (
-                        <div key={idx} className="group bg-white cursor-pointer" >
+                        <Link
+                            key={idx}
+                            href={`/articles/${article.slug}`} 
+                            className="group bg-white cursor-pointer block"
+                        >
                             {/* Image */}
                             <div className="overflow-hidden">
                                 <img
                                     src={article.image}
                                     alt={article.title}
-                                    className="w-full h-96 object-cover transition-all duration-500 md:group-hover:h-80" />
+                                    className="w-full h-96 object-cover transition-all duration-500 md:group-hover:h-80"
+                                />
                             </div>
+
                             {/* Content */}
                             <div className="p-4">
                                 <h4 className="text-lg font-bold mb-1">{article.title}</h4>
                                 <p className="text-sm text-gray-500 mb-2">{article.date}</p>
-                                <p className="hidden md:block text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500"> {article.description}
+                                <p className="hidden md:block text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    {getPreview(article.content)}
                                 </p>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
-            </div>
-
-            <div className="flex justify-center mt-4 2xl:mt-12">
-                <Button text="Read More Articles" href="/articles" />
             </div>
         </section>
     );
