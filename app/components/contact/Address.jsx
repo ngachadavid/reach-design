@@ -21,7 +21,7 @@ export default function Address() {
     return (
         <section
             ref={sectionRef}
-            className="bg-white text-black px-4 2xl:px-0 pb-20"
+            className="bg-white text-black px-4 2xl:px-0 pb-10 md:pb-20"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
@@ -84,13 +84,13 @@ export default function Address() {
                         animation: 'scroll 25s linear infinite'
                     }}
                 >
-                    <span className="text-9xl opacity-20 inline-block px-12">
+                    <span className="text-5xl md:text-9xl opacity-20 inline-block px-12">
                         architect@reachdesignstudio.com
                     </span>
-                    <span className="text-9xl opacity-20 inline-block px-12">
+                    <span className="text-5xl md:text-9xl opacity-20 inline-block px-12">
                         architect@reachdesignstudio.com
                     </span>
-                    <span className="text-9xl opacity-20 inline-block px-12">
+                    <span className="text-5xl md:text-9xl opacity-20 inline-block px-12">
                         architect@reachdesignstudio.com
                     </span>
                 </div>

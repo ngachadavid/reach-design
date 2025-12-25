@@ -32,7 +32,7 @@ export default function Projects() {
   }, [])
 
   return (
-    <main className="w-full pt-20">
+    <main className="w-full pt-10 md:pt-20">
       {
         projects.map( ({handle, name}, i) => {
           return <Gallery handle={handle} name={name} key={i}/>

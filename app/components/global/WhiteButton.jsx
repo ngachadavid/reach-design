@@ -27,7 +27,7 @@ export default function WhiteButton({ text = "Submit Info", href = "#" }) {
       
       {/* Button content */}
       <div className="relative bg-transparent px-4 py-3 border-2 border-white rounded-3xl">
-        <span className="relative text-white font-normal text-lg transition-colors duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:text-black z-10">
+        <span className="relative text-white font-normal text-sm md:text-lg transition-colors duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:text-black z-10">
           {text}
         </span>
       </div>

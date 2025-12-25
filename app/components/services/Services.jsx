@@ -108,13 +108,13 @@ export default function Services() {
               className="relative"
             >
               {/* Mobile Version */}
-              <div className="md:hidden border-t border-gray-300">
+              <div className="2xl:hidden border-t border-gray-300">
                 <div 
                   className="flex items-center justify-between py-6 cursor-pointer"
                   onClick={() => toggleExpand(index)}
                 >
                   {/* Service Name */}
-                  <div className="text-xl font-medium tracking-tight">
+                  <div className="text-xl md:text-2xl font-medium tracking-tight">
                     {service.title}
                   </div>
 
@@ -132,7 +132,7 @@ export default function Services() {
                       : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="text-sm text-black leading-relaxed">
+                  <div className="text-sm md:text-base text-black leading-relaxed">
                     {service.description}
                   </div>
                 </div>
@@ -140,7 +140,7 @@ export default function Services() {
 
               {/* Desktop Version */}
               <div 
-                className="hidden md:block"
+                className="hidden 2xl:block"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
@@ -166,7 +166,7 @@ export default function Services() {
                     }`}
                   >
                     {/* Image */}
-                    <div className="w-72 h-80 overflow-hidden shadow-lg z-50">
+                    <div className="w-72 h-52 2xl:h-80 overflow-hidden shadow-lg z-50">
                       <img
                         src={service.image}
                         alt={service.title}
@@ -175,7 +175,7 @@ export default function Services() {
                     </div>
 
                     {/* Description */}
-                    <div className="w-80 text-base text-black leading-relaxed">
+                    <div className="w-80 text-sm 2xl:text-base text-black leading-relaxed">
                       {service.description}
                     </div>
                   </div>

@@ -50,7 +50,7 @@ export default function Team() {
     return (
         <section
             ref={sectionRef}
-            className="bg-white text-black px-4 2xl:px-0 pt-20 pb-32"
+            className="bg-white text-black px-4 2xl:px-0 mt:pt-20 pb-20 md:pb-32"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header */}

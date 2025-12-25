@@ -13,10 +13,10 @@ export default function CTA() {
             <img
               src="/images/cta.svg"
               alt=""
-              className="w-48 h-48 object-contain"
+              className="w-40 md:w-48 h-40 md:h-48 object-contain"
             />
 
-            <h3 className="text-3xl md:text-5xl font-extrabold tracking-tight max-w-xl">
+            <h3 className="text-2xl md:text-5xl font-extrabold tracking-tight max-w-xl">
               Let’s shape the space that you’ve been envisioning...
             </h3>
           </div>

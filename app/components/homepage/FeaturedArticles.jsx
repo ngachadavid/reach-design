@@ -53,7 +53,7 @@ export default function FeaturedArticles() {
     return (
         <section
             ref={sectionRef}
-            className="bg-white text-black px-4 2xl:px-0 py-20 min-h-[60vh]"
+            className="bg-white text-black px-4 2xl:px-0 pb-10 md:py-20 min-h-[60vh]"
         >
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
@@ -80,17 +80,17 @@ export default function FeaturedArticles() {
                                 <img
                                     src={article.image}
                                     alt={article.title}
-                                    className="w-full h-96 object-cover transition-all duration-500 group-hover:h-80" />
+                                    className="w-full h-96 object-cover transition-all duration-500 md:group-hover:h-80" />
                             </div>
                             {/* Content */}
                             <div className="p-4">
                                 <h4 className="text-lg font-bold mb-1">{article.title}</h4>
                                 <p className="text-sm text-gray-500 mb-2">{article.date}</p>
-                                <p className="text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500"> {article.description}
-                                </p> 
-                                </div> 
-                                </div>
-                            ))}
+                                <p className="hidden md:block text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-500"> {article.description}
+                                </p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 

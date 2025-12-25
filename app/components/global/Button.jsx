@@ -27,7 +27,7 @@ export default function Button({ text = "How It Works", href = "#" }) {
       
       {/* Button content */}
       <div className="relative bg-transparent px-4 py-3 border-2 border-black rounded-3xl">
-        <span className="relative text-black font-normal text-lg transition-colors duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:text-white z-10">
+        <span className="relative text-black font-normal text-sm md:text-lg transition-colors duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:text-white z-10">
           {text}
         </span>
       </div>

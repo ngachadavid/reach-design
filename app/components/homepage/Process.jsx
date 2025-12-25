@@ -44,7 +44,7 @@ export default function Process() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white text-black px-4 2xl:px-0 pt-20"
+      className="bg-white text-black px-4 2xl:px-0 pt-10 md:pt-20"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
