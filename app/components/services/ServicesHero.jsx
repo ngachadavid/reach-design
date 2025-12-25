@@ -1,6 +1,6 @@
 'use client';
 
-import DividerArrow3 from "../global/DividerArrow3";
+import DividerArrow from "../global/DividerArrow";
 
 export default function ServicesHero() {
   return (
@@ -12,25 +12,22 @@ export default function ServicesHero() {
         </h1>
 
         {/* Image */}
-        <div className="mt-16">
+        {/* <div className="mt-16">
           <img
-            src="/images/reach2.avif"
+            src="/images/reach.webp"
             alt="Reach Design Studio contact"
             className="w-full h-[60vh] object-cover object-center"
           />
-        </div>
+        </div> */}
 
         {/* Description */}
         <div className="mt-16 flex justify-end">
           <p className="text-lg md:text-xl leading-relaxed tracking-tight max-w-xl">
-            At Reach Designs, every project begins with a conversation. An opportunity to understand
-            intent, context, and ambition. Whether you’re exploring a new idea,
-            navigating a design challenge, or seeking a thoughtful collaborator,
-            we welcome the dialogue.
+            Our services are built around the belief that great design begins with understanding. By combining architectural insight with creative problem-solving, we deliver design solutions that respond to both vision and practicality. <br/> Each design is unique, crafted to add commercial, social and aesthetic value while expressing our responsibility to safeguard the planet, nurture our team and enhance the lives of people who use the spaces we create.
           </p>
         </div>
       </div>
-      <DividerArrow3 />
+      <DividerArrow />
     </section>
   );
 }
