@@ -6,37 +6,37 @@ import AnimatedH2 from "../global/AnimatedH2";
 const services = [
   {
     title: "Architecture & Urban Design",
-    image: "/images/reach3.webp",
+    image: "/projects/pan3.avif",
     description:
       "We design climate-responsive, culturally rooted, and technology-driven architecture that redefines spaces in Africa. By blending AI-powered insights and innovative design principles, we create efficient buildings that honor tradition while embracing modern advancements."
   },
   {
     title: "Interior Design",
-    image: "/images/reach.webp",
+    image: "/images/int.avif",
     description:
       "Our interior spaces balance aesthetics, functionality, and sustainability to enhance well-being and energy efficiency. We integrate local craftsmanship, smart technologies, and modern design to create spaces that are both visually compelling and highly efficient."
   },
   {
     title: "Climatic Design Consultancy",
-    image: "/images/reach.webp",
+    image: "/images/dirah.webp",
     description:
       "We help architects, developers, and policymakers create climate-smart, energy-efficient buildings through research-driven strategies. Using DIRAH AI, we optimize building performance, reduce energy consumption, and support resilient built environments."
   },
   {
     title: "Residential Architecture",
-    image: "/images/reach.webp",
+    image: "/images/resident.avif",
     description:
       "We design homes that respond to climate, lifestyle, and cultural context. Each residential project balances comfort, efficiency, and timeless design to create living spaces that feel personal, functional, and connected to their surroundings."
   },
   {
     title: "Commercial Architecture",
-    image: "/images/reach.webp",
+    image: "/images/comm.avif",
     description:
       "Our commercial architecture is driven by performance, identity, and long-term value. We create efficient, adaptable spaces that support business growth while delivering strong architectural character and sustainability."
   },
   {
     title: "Mixed-Use Developments",
-    image: "/images/reach.webp",
+    image: "/images/mixed.avif",
     description:
       "We design integrated mixed-use environments that seamlessly combine living, working, and social spaces. Through strategic planning and contextual design, we create vibrant developments that enhance urban connectivity and functionality."
   },
@@ -54,13 +54,13 @@ const services = [
   },
   {
     title: "Furniture, Fixtures & Equipment",
-    image: "/images/reach.webp",
+    image: "/images/reach1.webp",
     description:
       "We assist in the selection and specification of furniture, fixtures, and equipment (FF&E) to complement our designs. Our expertise ensures that every element is functional, aesthetically pleasing, and aligned with the overall vision of the project."
   },
   {
     title: "ArchViz Renders & Animations",
-    image: "/images/reach.webp",
+    image: "/projects/pan5.avif",
     description:
       "We create high-quality architectural visualizations that bring designs to life before construction begins. Through detailed renders and immersive animations, we help clients and stakeholders clearly experience the intended space."
   }
@@ -90,7 +90,7 @@ export default function Services() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white text-black px-4 2xl:px-0 py-20"
+      className="bg-white text-black px-4 2xl:px-0 pb-20"
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
