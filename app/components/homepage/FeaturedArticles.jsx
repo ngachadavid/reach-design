@@ -72,7 +72,7 @@ export default function FeaturedArticles() {
                 </div>
 
                 {/* Articles grid */}
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-3 gap-4 2xl:gap-8">
                     {articles.map((article, idx) => (
                         <div key={idx} className="group bg-white cursor-pointer" >
                             {/* Image */}
@@ -94,8 +94,8 @@ export default function FeaturedArticles() {
                 </div>
             </div>
 
-            <div className="flex justify-center mt-12">
-                <Button text="Read More Articles" href="/contact" />
+            <div className="flex justify-center mt-4 2xl:mt-12">
+                <Button text="Read More Articles" href="/articles" />
             </div>
         </section>
     );

@@ -10,7 +10,7 @@ export default function ProjectsPage() {
           Selected projects that met our clients' lot conditions, lifestyle, and budget.
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 2xl:gap-x-8 gap-y-14">
           {projects.map((project, idx) => {
             const slug = slugify(project.title);
             return (

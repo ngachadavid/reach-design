@@ -112,7 +112,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex gap-12 text-sm tracking-wider">
+        <div className="hidden md:flex gap-8 2xl:gap-12 text-sm tracking-wider">
           {navLinks.map(({ label, href }) => (
             <Link
               key={label}
