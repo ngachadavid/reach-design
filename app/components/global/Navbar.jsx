@@ -72,10 +72,10 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: "PROJECTS", href: "/projects" },
-    { label: "EXPERTISE", href: "/expertise" },
-    { label: "ABOUT US", href: "/about" },
-    { label: "CONTACT", href: "/contact" },
+    { label: "Projects", href: "/projects" },
+    { label: "Expertise", href: "/expertise" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ];
 
   /*
@@ -133,7 +133,7 @@ export default function Navbar() {
               {/* Text */}
               <span
                 className={`
-                  relative z-10 pl-4
+                  relative z-10 pl-4 uppercase
                   transition-colors duration-300
                   ${isDark ? "group-hover:text-black" : "group-hover:text-white"}
                 `}
@@ -177,18 +177,28 @@ export default function Navbar() {
       {/* Mobile Menu Overlay */}
       <div
         className={`
-          fixed inset-0 z-40 bg-white backdrop-blur-lg
-          transition-all duration-300 ease-in-out md:hidden
-          ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}
+          fixed inset-0 z-40 bg-white
+          transition-transform duration-500 ease-in-out md:hidden origin-top
+          ${mobileMenuOpen ? "scale-y-100" : "scale-y-0"}
         `}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {navLinks.map(({ label, href }) => (
+        <div className="flex flex-col items-start justify-start h-full pt-32 px-8 gap-6">
+          {navLinks.map(({ label, href }, index) => (
             <Link
               key={label}
               href={href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-black text-3xl font-bold tracking-normal"
+              className={`
+                text-black text-2xl font-bold tracking-normal
+                transition-all duration-500 ease-out
+                ${mobileMenuOpen 
+                  ? "opacity-100 translate-y-0" 
+                  : "opacity-0 -translate-y-4"
+                }
+              `}
+              style={{
+                transitionDelay: mobileMenuOpen ? `${100 + index * 100}ms` : '0ms'
+              }}
             >
               {label}
             </Link>
