@@ -1,7 +1,7 @@
 'use client';
 
 import DividerArrow from "../global/DividerArrow";
-import StackedImages from "../global/StackedImages";
+import StackedSection from "./StackedSection";
 
 export default function ServicesHero() {
   return (
@@ -18,7 +18,7 @@ export default function ServicesHero() {
         <div className="mt-16 flex flex-col md:flex-row items-stretch gap-6 2xl:gap-12">
           {/* Left side: StackedImages */}
           <div className="w-full md:w-[50%] 2xl:w-[40%]">
-            <StackedImages />
+            <StackedSection />
           </div>
 
           {/* Right side: Description */}
