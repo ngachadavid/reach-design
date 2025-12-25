@@ -82,7 +82,7 @@ export default function ProjectDetail() {
         {/* Mobile vertical scroll */}
         <div className="2xl:hidden min-h-screen">
           {/* Main hero image */}
-          <div className="flex items-center justify-center py-20 px-4">
+          <div className="flex items-center justify-center pt-20 px-4">
             <img
               src={project.image}
               alt={project.title}
