@@ -2,13 +2,13 @@
 
 import DividerArrow3 from "../global/DividerArrow3";
 
-export default function ContactHero() {
+export default function ServicesHero() {
   return (
     <section className="bg-white text-black px-4 2xl:px-0 pt-32 pb-10">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight w-full md:w-[70%] text-center mx-auto mt-10">
-          Reach out to discuss your vision and how we can bring it to life together.
+          Discover the services that turn your architectural dreams into tangible spaces.
         </h1>
 
         {/* Image */}
