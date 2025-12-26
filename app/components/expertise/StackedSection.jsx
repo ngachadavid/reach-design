@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const StackedSection = () => {
-  const [images] = useState([
+  const [images, setImages] = useState([
     {
       src: '/images/rreach.webp',
       alt: 'Image 1',
@@ -30,29 +30,115 @@ const StackedSection = () => {
   ]);
 
   const [draggedIndex, setDraggedIndex] = useState(null);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const [dragPosition, setDragPosition] = useState({ x: 0, y: 0 });
+  const [startPosition, setStartPosition] = useState({ x: 0, y: 0 });
+  const containerRef = React.useRef(null);
 
-  const handleMouseDown = (e, index) => {
+  const handleStart = (e, index) => {
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+    
+    // Bring clicked/touched image to front
+    const newImages = [...images];
+    const clickedImage = newImages[index];
+    const currentZIndex = clickedImage.zIndex;
+    
+    // Move all images with higher z-index down by 1
+    newImages.forEach(img => {
+      if (img.zIndex > currentZIndex) {
+        img.zIndex -= 1;
+      }
+    });
+    
+    // Put clicked image on top
+    clickedImage.zIndex = images.length - 1;
+    setImages(newImages);
+    
     setDraggedIndex(index);
-    setDragOffset({
-      x: e.clientX,
-      y: e.clientY
+    setStartPosition({ x: clientX, y: clientY });
+    setDragPosition({ x: 0, y: 0 });
+  };
+
+  const handleMove = (e) => {
+    if (draggedIndex === null) return;
+
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+
+    setDragPosition({
+      x: clientX - startPosition.x,
+      y: clientY - startPosition.y
     });
   };
 
+  const handleEnd = () => {
+    if (draggedIndex === null) return;
+
+    const container = containerRef.current;
+    if (!container) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const threshold = containerRect.width * 0.1;
+
+    // Check if dragged far enough to the sides
+    if (Math.abs(dragPosition.x) > threshold) {
+      // Push to back by reordering z-indices
+      const newImages = [...images];
+      const draggedImage = newImages[draggedIndex];
+      const currentZIndex = draggedImage.zIndex;
+      
+      // Move all images with lower z-index up by 1
+      newImages.forEach(img => {
+        if (img.zIndex < currentZIndex) {
+          img.zIndex += 1;
+        }
+      });
+      
+      // Put dragged image at the bottom (z-index 0)
+      draggedImage.zIndex = 0;
+      
+      setImages(newImages);
+    }
+
+    setDraggedIndex(null);
+    setDragPosition({ x: 0, y: 0 });
+  };
+
+  React.useEffect(() => {
+    if (draggedIndex !== null) {
+      document.addEventListener('mousemove', handleMove);
+      document.addEventListener('mouseup', handleEnd);
+      document.addEventListener('touchmove', handleMove);
+      document.addEventListener('touchend', handleEnd);
+
+      return () => {
+        document.removeEventListener('mousemove', handleMove);
+        document.removeEventListener('mouseup', handleEnd);
+        document.removeEventListener('touchmove', handleMove);
+        document.removeEventListener('touchend', handleEnd);
+      };
+    }
+  }, [draggedIndex, startPosition, dragPosition]);
+
   return (
     <div className="flex items-center justify-center p-8"> 
-      <div className="relative w-full h-96">
+      <div ref={containerRef} className="relative w-full h-96">
         {images.map((image, index) => (
           <div
             key={index}
             className="absolute inset-0 transition-transform duration-300 hover:scale-105"
             style={{
-              transform: `scale(1) rotateZ(${image.rotation}deg) translateX(${image.translateX}px) translateY(${image.translateY}px)`,
+              transform: `scale(1) rotateZ(${image.rotation}deg) translateX(${
+                draggedIndex === index ? image.translateX + dragPosition.x : image.translateX
+              }px) translateY(${
+                draggedIndex === index ? image.translateY + dragPosition.y : image.translateY
+              }px)`,
               zIndex: draggedIndex === index ? 10 : image.zIndex,
-              cursor: 'grab'
+              cursor: draggedIndex === index ? 'grabbing' : 'grab',
+              transition: draggedIndex === index ? 'none' : 'transform 0.3s'
             }}
-            onMouseDown={(e) => handleMouseDown(e, index)}
+            onMouseDown={(e) => handleStart(e, index)}
+            onTouchStart={(e) => handleStart(e, index)}
           >
             <img
               src={image.src}
