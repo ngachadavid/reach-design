@@ -6,25 +6,25 @@ const StackedSection = () => {
     {
       src: '/images/rreach.webp',
       alt: 'Image 1',
-      rotation: -10,
-      translateX: 5,
-      translateY: -5,
+      rotation: -12,
+      translateX: 10,
+      translateY: -8,
       zIndex: 2
     },
     {
       src: '/images/reach1.webp',
       alt: 'Image 2',
-      rotation: -2,
-      translateX: -26,
-      translateY: -26,
+      rotation: -3,
+      translateX: -20,
+      translateY: -20,
       zIndex: 1
     },
     {
       src: '/images/reach.webp',
       alt: 'Image 3',
-      rotation: 6,
-      translateX: 15,
-      translateY: -15,
+      rotation: 7,
+      translateX: 18,
+      translateY: -12,
       zIndex: 0
     }
   ]);

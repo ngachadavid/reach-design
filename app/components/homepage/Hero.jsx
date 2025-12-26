@@ -11,7 +11,7 @@ export default function Hero() {
       style={{ backgroundImage: "url('/images/rrrreach.webp')" }}
     >
       {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent pointer-events-none z-0" />
 
       {/* Bottom text */}
       <div className="absolute bottom-12 w-full z-10">
