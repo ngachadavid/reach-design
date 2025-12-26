@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-// import { useRouter } from "next/navigation";
-// import { usePageTransition } from "@/app/providers/PageTransitionProvider";
+import { useRouter } from "next/navigation";
+import { usePageTransition } from "@/app/providers/PageTransitionProvider";
 
 export default function Navbar() {
-  // const router = useRouter();
-  // const { startTransition } = usePageTransition();
+  const router = useRouter();
+  const { startTransition } = usePageTransition();
 
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -78,7 +78,7 @@ export default function Navbar() {
     { label: "Contact", href: "/contact" },
   ];
 
-  /*
+  
   const handleNav = (href) => (e) => {
     e.preventDefault();
 
@@ -86,7 +86,7 @@ export default function Navbar() {
       router.push(href);
     });
   };
-  */
+  
 
   return (
     <>
