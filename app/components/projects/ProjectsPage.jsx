@@ -19,16 +19,19 @@ export default function ProjectsPage() {
                 href={`/projects/${slug}`}
                 className="group cursor-pointer block"
               >
-                <div className="relative overflow-hidden transition-all duration-300 ease-out group-hover:rounded-lg">
+                <div className="relative overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-[70vh] object-cover transition-all duration-300 ease-out group-hover:brightness-75"
+                    className="w-full h-[70vh] object-cover transition-all duration-300 ease-out group-hover:grayscale"
                   />
+                  {/* Title inside the image */}
+                  <div className="absolute bottom-0 left-0 px-4 py-2 bg-white transition-colors duration-300 ease-out group-hover:bg-black">
+                    <h2 className="text-xl md:text-2xl font-bold tracking-tight text-black transition-colors duration-300 ease-out group-hover:text-white">
+                      {project.title}
+                    </h2>
+                  </div>
                 </div>
-                <h2 className="mt-6 text-2xl md:text-3xl font-bold tracking-tight">
-                  {project.title}
-                </h2>
               </Link>
             );
           })}
