@@ -75,8 +75,12 @@ export default function Services() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setIsVisible(true),
-      { threshold: 0.3 }
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -105,7 +109,12 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="relative"
+              className="relative transition-all duration-700 ease-out"
+              style={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                transitionDelay: `${index * 100}ms`
+              }}
             >
               {/* Mobile Version */}
               <div className="2xl:hidden border-t border-gray-300">
@@ -185,9 +194,16 @@ export default function Services() {
           ))}
         </div>
       </div>
-       <div className="flex justify-center mt-10 z-0">
-                      <Button text="See Portfolio" href="/projects" />
-                  </div>
+      <div 
+        className="flex justify-center mt-10 z-0 transition-all duration-700 ease-out"
+        style={{
+          opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+          transitionDelay: `${services.length * 100}ms`
+        }}
+      >
+        <Button text="See Portfolio" href="/projects" />
+      </div>
     </section>
   );
 }
