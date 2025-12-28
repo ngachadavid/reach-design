@@ -1,6 +1,6 @@
 import { Work_Sans, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import { PageTransitionProvider } from "./providers/PageTransitionProvider";
+// import { PageTransitionProvider } from "./providers/PageTransitionProvider";
 
 const workSans = Work_Sans({
   variable: "--font-work-sans",
@@ -22,12 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${workSans.variable} ${cormorantGaramond.variable} antialiased`}
-      >
-        <PageTransitionProvider>
+      <body className={`${workSans.variable} ${cormorantGaramond.variable} antialiased`}>
+        {/* <PageTransitionProvider>
           {children}
-        </PageTransitionProvider>
+        </PageTransitionProvider> */}
+        {children}
       </body>
     </html>
   );

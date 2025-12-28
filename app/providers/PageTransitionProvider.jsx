@@ -49,7 +49,7 @@ export function PageTransitionProvider({ children }) {
         <div
           style={{ transform: getTransform() }}
           className="
-            fixed inset-x-0 top-0 h-screen z-[100] bg-black
+            fixed inset-x-0 top-0 h-screen z-100 bg-black
             rounded-b-[50px]
             transition-transform duration-700 ease-in-out
             pointer-events-none
