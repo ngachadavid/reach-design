@@ -64,8 +64,15 @@ export default function FeaturedArticles() {
                     {articles.map((article, idx) => (
                         <Link
                             key={idx}
-                            href={`/articles/${article.slug}`} 
-                            className="group bg-white cursor-pointer block"
+                            href={`/articles/${article.slug}`}
+                            style={{
+                                transitionDelay: `${idx * 140}ms`,
+                            }}
+                            className={`
+      group bg-white cursor-pointer block
+      transition-all duration-700 ease-out
+      ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+    `}
                         >
                             {/* Image */}
                             <div className="overflow-hidden">
@@ -86,6 +93,7 @@ export default function FeaturedArticles() {
                             </div>
                         </Link>
                     ))}
+
                 </div>
             </div>
         </section>

@@ -65,7 +65,14 @@ export default function Process() {
           {process.map((item, i) => (
             <div
               key={i}
-              className="bg-neutral-300 rounded-2xl p-8 flex flex-col gap-6"
+              style={{
+                transitionDelay: `${i * 120}ms`, // stagger timing
+              }}
+              className={`
+      bg-neutral-300 rounded-2xl p-8 flex flex-col gap-6
+      transition-all duration-700 ease-out
+      ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+    `}
             >
               <span className="text-4xl font-light opacity-80 font-[--font-mono]">
                 {String(i + 1).padStart(2, "0")}
@@ -80,6 +87,7 @@ export default function Process() {
               </p>
             </div>
           ))}
+
         </div>
       </div>
       <DividerArrow isVisible={isVisible} />

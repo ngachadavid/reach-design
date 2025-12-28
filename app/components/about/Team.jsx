@@ -72,8 +72,15 @@ export default function Team() {
                     {teamMembers.map((member, idx) => (
                         <div
                             key={idx}
-                            className="flex flex-col gap-6 cursor-pointer group"
                             onClick={() => setSelectedMember(member)}
+                            style={{
+                                transitionDelay: `${idx * 140}ms`,
+                            }}
+                            className={`
+      flex flex-col gap-6 cursor-pointer group
+      transition-all duration-700 ease-out
+      ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+    `}
                         >
                             {/* Image */}
                             <div className="w-full h-115 overflow-hidden">
@@ -98,6 +105,7 @@ export default function Team() {
                             </div>
                         </div>
                     ))}
+
                 </div>
             </div>
 
