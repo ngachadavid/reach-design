@@ -20,7 +20,7 @@ export default function Footer() {
                             <a href="/contact" className="text-sm md:text-base tracking-wider hover:opacity-60 transition-opacity">
                                 Contact
                             </a>
-                             <a href="/contact" className="text-sm md:text-base tracking-wider hover:opacity-60 transition-opacity">
+                             <a href="/expertise" className="text-sm md:text-base tracking-wider hover:opacity-60 transition-opacity">
                                 Expertise
                             </a>
 
