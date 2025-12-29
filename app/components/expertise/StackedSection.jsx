@@ -20,7 +20,7 @@ const StackedSection = () => {
       zIndex: 1
     },
     {
-      src: '/images/reach.webp',
+      src: '/images/sustain.webp',
       alt: 'Image 3',
       rotation: 7,
       translateX: 18,

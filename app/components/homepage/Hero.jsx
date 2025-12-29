@@ -12,9 +12,9 @@ export default function ParallaxHero() {
   const section3Ref = useRef(null);
 
   const heroData = [
-    { image: '/images/rrrreach.webp', title: 'Reach Design Studios' },
-    { image: '/images/reach3.webp', title: 'Innovation & Creativity' },
-    { image: '/images/rrreach.jpg', title: 'Exceptional Design' }];
+    { image: '/images/urban.jpg', title: 'Architecture & Urban Design' },
+    { image: '/images/int.webp', title: 'Interior Design' },
+    { image: '/images/reach.webp', title: 'Climatic Design Consultancy' }];
 
   useEffect(() => {
     const sections = [section1Ref.current, section2Ref.current, section3Ref.current];
@@ -55,17 +55,32 @@ export default function ParallaxHero() {
           key={index}
           ref={index === 0 ? section1Ref : index === 1 ? section2Ref : section3Ref}
           className="relative h-screen w-full bg-cover bg-center"
-          style={{ backgroundImage: `url('${hero.image}')` }}
+          style={{ backgroundImage: `url('${hero.image}')` }} 
         >
-          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/5 via-black/40 to-transparent pointer-events-none" />
 
-          <div className="absolute bottom-12 w-full">
-            <div className="max-w-7xl mx-auto px-4 2xl:px-0 text-white">
-              <h1 className="text-4xl md:text-7xl leading-tight font-bold">
-                {hero.title}
-              </h1>
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-7xl mx-auto w-full px-4 2xl:px-0">
+              <div className="grid grid-cols-12 items-center text-white">
+
+                <div className="col-span-12 md:col-span-4">
+                  <h1 className="text-lg md:text-xl tracking-widest">
+                    Reach Design Studios
+                  </h1>
+                </div>
+
+                {/* Title */}
+                <div className="col-span-12 md:col-span-8 md:text-center mt-6 md:mt-0">
+                  <h2 className="text-4xl md:text-7xl leading-tight font-bold">
+                    {hero.title}
+                  </h2>
+                </div>
+
+              </div>
             </div>
           </div>
+
+
         </section>
       ))}
     </div>

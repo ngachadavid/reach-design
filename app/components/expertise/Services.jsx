@@ -43,13 +43,13 @@ const services = [
   },
   {
     title: "Sustainable Design",
-    image: "/images/reach.webp",
+    image: "/images/sustain.webp",
     description:
       "Sustainability is embedded in every project we undertake. We apply passive design strategies, material intelligence, and energy-efficient systems to reduce environmental impact while delivering future-ready architecture."
   },
   {
     title: "Project Management",
-    image: "/images/reach.webp",
+    image: "/images/sustain.webp",
     description:
       "We manage projects from concept to completion, aligning design intent, quality, timelines, and budgets. Through clear coordination and structured oversight, we ensure efficient execution and seamless delivery."
   },
