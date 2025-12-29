@@ -32,14 +32,15 @@ export default function ProjectsPage() {
   // Fetch projects from Sanity
   useEffect(() => {
     client
-      .fetch(`*[_type == "project"] | order(date desc){
-        title,
-        "slug": slug.current,
-        mainImage,
-      }`)
+      .fetch(`*[_type == "project"] | order(priority desc){
+      title,
+      "slug": slug.current,
+      mainImage,
+    }`)
       .then((data) => setProjects(data))
       .catch(console.error);
   }, []);
+
 
   return (
     <section

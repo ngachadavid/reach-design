@@ -23,15 +23,13 @@ export default {
       name: "mainImage",
       title: "Main Image",
       type: "image",
-      options: {
-        hotspot: true,
-      },
+      options: { hotspot: true },
       validation: (Rule) => Rule.required(),
     },
     {
       name: "description",
       title: "Description",
-      type: "text", // or "blockContent" if you want rich text
+      type: "text",
       validation: (Rule) => Rule.required(),
     },
     {
@@ -44,7 +42,6 @@ export default {
       name: "video",
       title: "Video",
       type: "url",
-      description: "Link to a video (YouTube, Vimeo, etc.)",
     },
     {
       name: "location",
@@ -60,6 +57,15 @@ export default {
       name: "siteArea",
       title: "Site Area (sqm)",
       type: "number",
+    },
+    {
+      name: "priority",
+      title: "Display Priority",
+      type: "number",
+      description:
+        "Higher numbers appear first. Use spacing (100, 90, 80).",
+      initialValue: 100,
+      validation: (Rule) => Rule.required().integer(),
     },
   ],
 };
