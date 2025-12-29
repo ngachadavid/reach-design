@@ -3,11 +3,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-// import { usePageTransition } from "@/app/providers/PageTransitionProvider";
 
 export default function Navbar() {
   const router = useRouter();
-  // const { startTransition } = usePageTransition();
 
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -63,8 +61,7 @@ export default function Navbar() {
   // Handle navigation
   const handleNav = (href) => (e) => {
     e.preventDefault();
-    setMobileMenuOpen(false); // close mobile menu first
-    // Normal navigation without transition
+    setMobileMenuOpen(false); 
     router.push(href);
   };
 
