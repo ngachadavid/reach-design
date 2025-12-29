@@ -68,7 +68,7 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white text-black px-4 2xl:px-0 pt-20 pb-4"
+      className="bg-white text-black px-4 2xl:px-0 pt-44 pb-4"
     >
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 items-start">
         {/* Left */}
