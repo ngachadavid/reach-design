@@ -1,3 +1,7 @@
+import article from "./article";
+
 export const schema = {
-  types: [],
+  types: [
+    article
+  ],
 }
