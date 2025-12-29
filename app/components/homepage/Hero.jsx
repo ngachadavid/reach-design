@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -64,15 +65,36 @@ export default function ParallaxHero() {
               <div className="grid grid-cols-12 items-center text-white">
 
                 <div className="col-span-12 md:col-span-4">
-                  <h1 className="text-lg md:text-xl tracking-widest">
-                    Reach Design Studios
-                  </h1>
+                  {index === 0 ? (
+                    <h1 className="text-lg md:text-xl tracking-widest">
+                      Reach Design Studios
+                    </h1>
+                  ) : (
+                    <p className="text-lg md:text-xl tracking-widest">
+                      Reach Design Studios
+                    </p>
+                  )}
                 </div>
 
                 {/* Title */}
                 <div className="col-span-12 md:col-span-8 md:text-center mt-6 md:mt-0">
                   <h2 className="text-4xl md:text-7xl leading-tight font-bold">
-                    {hero.title}
+                    {hero.title.split(' ').map((word, wordIndex) => (
+                      <motion.span
+                        key={`${index}-${wordIndex}`}
+                        className="inline-block mr-3 md:mr-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false, amount: 0.7 }}
+                        transition={{
+                          duration: 0.6,
+                          delay: wordIndex * 0.15,
+                          ease: [0.22, 1, 0.36, 1]
+                        }}
+                      >
+                        {word}
+                      </motion.span>
+                    ))}
                   </h2>
                 </div>
 
