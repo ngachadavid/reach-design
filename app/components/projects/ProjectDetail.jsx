@@ -12,6 +12,19 @@ import { HousePlus, X } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Helper function to extract YouTube video ID
+function getYouTubeID(url) {
+  if (!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  if (match && match[2].length === 11) {
+    return match[2];
+  }
+  // Try alternative pattern for youtu.be links with parameters
+  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  return shortMatch ? shortMatch[1] : null;
+}
+
 export default function ProjectDetail() {
   const params = useParams();
   const { slug } = params;
@@ -31,6 +44,7 @@ export default function ProjectDetail() {
           mainImage,
           "images": images[].asset->url,
           description,
+          video,
           location,
           noOfStories,
           siteArea
@@ -47,7 +61,7 @@ export default function ProjectDetail() {
   // GSAP horizontal scroll
   useEffect(() => {
     if (!project) return;
-    if (window.innerWidth < 768) return; // only run on desktop
+    if (window.innerWidth < 768) return;
 
     const container = containerRef.current;
     const horizontal = horizontalRef.current;
@@ -88,6 +102,12 @@ export default function ProjectDetail() {
   if (!project) {
     return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
   }
+
+  const videoId = getYouTubeID(project.video);
+  
+  // Debug log
+  console.log('Video URL from Sanity:', project.video);
+  console.log('Extracted Video ID:', videoId);
 
   return (
     <>
@@ -140,6 +160,36 @@ export default function ProjectDetail() {
             </div>
           ))}
 
+          {/* Video section - Mobile */}
+          {project.video && videoId && (
+            <div className="px-4 py-8">
+              <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-900">
+                <a 
+                  href={`https://www.youtube.com/watch?v=${videoId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center group"
+                  style={{
+                    backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center group-hover:bg-red-700 transition-colors">
+                    <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </a>
+              </div>
+            </div>
+          )}
+          {project.video && !videoId && (
+            <div className="px-4 py-8">
+              <p className="text-sm text-gray-400 text-center">Invalid YouTube URL</p>
+            </div>
+          )}
+
           <div className="h-32" />
         </div>
 
@@ -184,6 +234,36 @@ export default function ProjectDetail() {
                 />
               </div>
             ))}
+
+            {/* Video section - Desktop */}
+            {project.video && videoId && (
+              <div className="shrink-0 h-screen flex items-center justify-center w-screen px-16 bg-black">
+                <div className="relative w-full max-w-5xl aspect-video rounded-lg overflow-hidden bg-gray-900">
+                  <a 
+                    href={`https://www.youtube.com/watch?v=${videoId}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 flex items-center justify-center group"
+                    style={{
+                      backgroundImage: `url(https://img.youtube.com/vi/${videoId}/maxresdefault.jpg)`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    <div className="w-24 h-24 bg-red-600 rounded-full flex items-center justify-center group-hover:bg-red-700 transition-colors">
+                      <svg className="w-12 h-12 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            )}
+            {project.video && !videoId && (
+              <div className="shrink-0 h-screen flex items-center justify-center w-screen px-16 bg-black">
+                <p className="text-gray-400">Invalid YouTube URL</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
