@@ -64,7 +64,7 @@ export default function ParallaxHero() {
     };
   }, [heroData]);
 
-  if (!heroData) return null; // or a loading placeholder
+  if (!heroData) return null; 
 
   return (
     <div className="relative">
@@ -113,7 +113,6 @@ export default function ParallaxHero() {
                     ))}
                   </h2>
                 </div>
-
               </div>
             </div>
           </div>
