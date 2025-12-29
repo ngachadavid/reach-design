@@ -9,10 +9,10 @@ import { PortableText } from "@portabletext/react";
 const portableTextComponents = {
   block: {
     h2: ({ children }) => (
-      <h2 className="text-3xl font-extrabold mt-8 mb-4">{children}</h2>
+      <h2 className="text-xl md:text-3xl font-extrabold mt-8 mb-4">{children}</h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-2xl font-bold mt-6 mb-3">{children}</h3>
+      <h3 className="text-base md:text-2xl font-bold mt-6 mb-3">{children}</h3>
     ),
     normal: ({ children }) => (
       <p className="mb-4 leading-relaxed">{children}</p>
@@ -72,10 +72,10 @@ export default async function BlogPost({ params }) {
     <>
       <Navbar />
       <main className="max-w-4xl mx-auto px-4 py-32">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
           {article.title}
         </h1>
-        <p className="text-gray-500 mb-8">
+        <p className="text-black/90 mb-8">
           {new Date(article.date).toLocaleDateString()}
         </p>
 
@@ -88,7 +88,7 @@ export default async function BlogPost({ params }) {
         )}
 
         {article.content && (
-          <div className="max-w-full text-lg">
+          <div className="max-w-full text-base md:text-lg">
             <PortableText
               value={article.content}
               components={portableTextComponents}

@@ -93,19 +93,7 @@ export const projects = [
       "Site Area": "411 m2",
       "No of Stories": "1",
     },
-  },
-  {
-    title: "A Frame House",
-    image: "/projects/aframe.avif",
-    description: "Contemporary A-frame design with panoramic views",
-    projectFacts: {
-      Location: "Nairobi County",
-      Year: "2023",
-    },
-  },
-  
-  
-  
+  },  
 ];
 
 // Helper function to get project by slug

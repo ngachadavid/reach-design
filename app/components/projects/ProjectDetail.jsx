@@ -3,11 +3,12 @@
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getProjectBySlug } from '@/app/lib/projects';
-import { HousePlus, X } from 'lucide-react';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { client } from '@/sanity/lib/client';
+import { urlFor } from '@/sanity/lib/image';
+import { HousePlus, X } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,15 +20,33 @@ export default function ProjectDetail() {
   const containerRef = useRef(null);
   const scrollTriggerRef = useRef(null);
 
-  const project = getProjectBySlug(slug);
+  const [project, setProject] = useState(null);
 
-  if (!project) {
-    notFound();
-  }
+  // Fetch project from Sanity
+  useEffect(() => {
+    client
+      .fetch(
+        `*[_type == "project" && slug.current == $slug][0]{
+          title,
+          mainImage,
+          "images": images[].asset->url,
+          description,
+          location,
+          noOfStories,
+          siteArea
+        }`,
+        { slug }
+      )
+      .then((data) => {
+        if (!data) notFound();
+        setProject(data);
+      })
+      .catch(console.error);
+  }, [slug]);
 
+  // GSAP horizontal scroll
   useEffect(() => {
     if (!project) return;
-
     if (window.innerWidth < 768) return; // only run on desktop
 
     const container = containerRef.current;
@@ -66,6 +85,10 @@ export default function ProjectDetail() {
     router.back();
   };
 
+  if (!project) {
+    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+  }
+
   return (
     <>
       {/* Top bar */}
@@ -81,33 +104,29 @@ export default function ProjectDetail() {
       <div className="bg-black text-white">
         {/* Mobile vertical scroll */}
         <div className="2xl:hidden min-h-screen">
-          {/* Main hero image */}
-          <div className="flex items-center justify-center pt-20 px-4">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-auto object-cover rounded-lg"
-            />
-          </div>
+          {project.mainImage && (
+            <div className="flex items-center justify-center pt-20 px-4">
+              <img
+                src={urlFor(project.mainImage).width(1200).url()}
+                alt={project.title}
+                className="w-full h-auto object-cover rounded-lg"
+              />
+            </div>
+          )}
 
           {/* Project details */}
           <div className="px-6 py-16">
-            <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-4">
-              {project.title}
-            </h1>
+            <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight mb-4">{project.title}</h1>
 
             <div className="space-y-2 text-sm text-gray-300 mb-6">
-              {project.projectFacts &&
-                Object.entries(project.projectFacts).map(([key, value]) => (
-                  <p key={key}>
-                    <span className="text-white font-semibold">{key}:</span> {value}
-                  </p>
-                ))}
+              {project.location && <p><span className="text-white font-semibold">Location:</span> {project.location}</p>}
+              {project.noOfStories && <p><span className="text-white font-semibold">Stories:</span> {project.noOfStories}</p>}
+              {project.siteArea && <p><span className="text-white font-semibold">Site Area:</span> {project.siteArea} m²</p>}
             </div>
 
-            <p className="text-sm md:text-base leading-relaxed text-gray-200">
-              {project.description}
-            </p>
+            {project.description && (
+              <p className="text-sm md:text-base leading-relaxed text-gray-200">{project.description}</p>
+            )}
           </div>
 
           {/* Image gallery */}
@@ -128,31 +147,30 @@ export default function ProjectDetail() {
         <div ref={containerRef} className="hidden 2xl:block relative h-screen overflow-hidden">
           <div ref={horizontalRef} className="flex h-full">
             {/* Main hero image */}
-            <div className="shrink-0 h-screen flex items-center justify-center w-screen pt-20">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="h-full w-auto object-cover rounded-lg"
-              />
-            </div>
+            {project.mainImage && (
+              <div className="shrink-0 h-screen flex items-center justify-center w-screen pt-20">
+                <img
+                  src={urlFor(project.mainImage).width(1200).url()}
+                  alt={project.title}
+                  className="h-full w-auto object-cover rounded-lg"
+                />
+              </div>
+            )}
 
             {/* Project details */}
             <div className="shrink-0 h-screen flex items-center justify-center px-16 bg-black" style={{ width: '50vw' }}>
               <div className="max-w-2xl text-white">
-                <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
-                  {project.title}
-                </h1>
+                <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">{project.title}</h1>
 
                 <div className="space-y-3 text-base text-gray-300 mb-6">
-                  {project.projectFacts &&
-                    Object.entries(project.projectFacts).map(([key, value]) => (
-                      <p key={key}>
-                        <span className="text-white font-semibold">{key}:</span> {value}
-                      </p>
-                    ))}
+                  {project.location && <p><span className="text-white font-semibold">Location:</span> {project.location}</p>}
+                  {project.noOfStories && <p><span className="text-white font-semibold">Stories:</span> {project.noOfStories}</p>}
+                  {project.siteArea && <p><span className="text-white font-semibold">Site Area:</span> {project.siteArea} m²</p>}
                 </div>
 
-                <p className="text-lg leading-relaxed text-gray-200">{project.description}</p>
+                {project.description && (
+                  <p className="text-lg leading-relaxed text-gray-200">{project.description}</p>
+                )}
               </div>
             </div>
 
