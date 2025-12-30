@@ -16,6 +16,10 @@ const cormorantGaramond = Cormorant_Garamond({
 export const metadata = {
   title: "Reach Design Studio",
   description: "Architectural excellence - crafting spaces that inspire",
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
