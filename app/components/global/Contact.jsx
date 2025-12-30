@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import AnimatedH2 from "../global/AnimatedH2";
-import WhiteButton from "./WhiteButton";
+import WhiteSubmitButton from "./WhiteSubmitButton";
 
 export default function Contact() {
     const [isVisible, setIsVisible] = useState(false);
@@ -247,7 +247,7 @@ export default function Contact() {
 
                         {/* Submit */}
                         <div onClick={submitStatus.submitting ? null : handleSubmit}>
-                            <WhiteButton disabled={submitStatus.submitting} />
+                            <WhiteSubmitButton disabled={submitStatus.submitting} />
                         </div>
                     </div>
                 </div>
