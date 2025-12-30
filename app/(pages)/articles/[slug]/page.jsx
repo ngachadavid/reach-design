@@ -71,7 +71,7 @@ export default async function BlogPost({ params }) {
   return (
     <>
       <Navbar />
-      <main className="max-w-4xl mx-auto px-4 py-32">
+      <main className="max-w-4xl mx-auto px-4 py-32 text-black">
         <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
           {article.title}
         </h1>

@@ -1,8 +1,12 @@
 'use client';
 
-export default function WhiteButton({ text = "Submit Info", href = "#" }) {
+export default function WhiteButton({ text = "Submit Info", disabled = false }) {
   return (
-    <a href={href} className="relative inline-block cursor-pointer group overflow-visible">
+    <button 
+      type="button"
+      disabled={disabled}
+      className="relative inline-block cursor-pointer group overflow-visible disabled:opacity-50 disabled:cursor-not-allowed"
+    >
       {/* Animated fill background */}
       <div className="absolute inset-0 overflow-hidden rounded-3xl">
         <div 
@@ -15,7 +19,9 @@ export default function WhiteButton({ text = "Submit Info", href = "#" }) {
             if (el) {
               const parent = el.parentElement.parentElement;
               parent.addEventListener('mouseenter', () => {
-                el.style.transform = 'scaleY(1)';
+                if (!parent.disabled) {
+                  el.style.transform = 'scaleY(1)';
+                }
               });
               parent.addEventListener('mouseleave', () => {
                 el.style.transform = 'scaleY(0)';
@@ -28,9 +34,9 @@ export default function WhiteButton({ text = "Submit Info", href = "#" }) {
       {/* Button content */}
       <div className="relative bg-transparent px-4 py-3 border-2 border-white rounded-3xl">
         <span className="relative text-white font-normal text-sm md:text-lg transition-colors duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:text-black z-10">
-          {text}
+          {disabled ? 'Sending...' : text}
         </span>
       </div>
-    </a>
+    </button>
   );
 }
