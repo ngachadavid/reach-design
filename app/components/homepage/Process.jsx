@@ -66,7 +66,7 @@ export default function Process() {
             <div
               key={i}
               style={{
-                transitionDelay: `${i * 120}ms`, // stagger timing
+                transitionDelay: `${i * 120}ms`,
               }}
               className={`
       bg-neutral-300 rounded-2xl p-8 flex flex-col gap-6

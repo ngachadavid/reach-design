@@ -12,6 +12,7 @@ export default function DividerArrow() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="overflow-visible"
+        style={{ transform: "translateZ(0)" }}
       >
         {/* Main line */}
         <motion.path
@@ -20,8 +21,7 @@ export default function DividerArrow() {
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
-          pathLength="1"
-          initial={{ strokeDasharray: "1 1", strokeDashoffset: 1 }}
+          initial={{ strokeDasharray: 1000, strokeDashoffset: 1000 }}
           whileInView={{ strokeDashoffset: 0 }}
           transition={{ duration: 1.6, ease: "easeInOut" }}
           viewport={{ once: true }}
@@ -34,8 +34,7 @@ export default function DividerArrow() {
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
-          pathLength="1"
-          initial={{ strokeDasharray: "1 1", strokeDashoffset: 1 }}
+          initial={{ strokeDasharray: 300, strokeDashoffset: 300 }}
           whileInView={{ strokeDashoffset: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut", delay: 1.4 }}
           viewport={{ once: true }}
