@@ -12,7 +12,11 @@ export default function DividerArrow() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="overflow-visible"
-        style={{ transform: "translateZ(0)" }}
+        style={{ 
+          transform: "translateZ(0)",
+          WebkitTransform: "translateZ(0)",
+          willChange: "transform"
+        }}
       >
         {/* Main line */}
         <motion.path
@@ -21,10 +25,12 @@ export default function DividerArrow() {
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
-          initial={{ strokeDasharray: 1000, strokeDashoffset: 1000 }}
+          fill="none"
+          initial={{ strokeDasharray: "1000 1000", strokeDashoffset: 1000 }}
           whileInView={{ strokeDashoffset: 0 }}
           transition={{ duration: 1.6, ease: "easeInOut" }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          style={{ vectorEffect: "non-scaling-stroke" }}
         />
 
         {/* Arrow tip */}
@@ -34,10 +40,12 @@ export default function DividerArrow() {
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
-          initial={{ strokeDasharray: 300, strokeDashoffset: 300 }}
+          fill="none"
+          initial={{ strokeDasharray: "300 300", strokeDashoffset: 300 }}
           whileInView={{ strokeDashoffset: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut", delay: 1.4 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
+          style={{ vectorEffect: "non-scaling-stroke" }}
         />
       </svg>
     </div>
