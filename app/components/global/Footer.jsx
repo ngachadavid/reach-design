@@ -31,7 +31,7 @@ export default function Footer() {
                     <div>
                         <h3 className="text-xl font-extrabold tracking-tight mb-2 md:mb-4">FOLLOW US</h3>
                         <nav className="flex flex-col gap-2 md:gap-3">
-                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">
+                            <a href="https://www.instagram.com/reachstudio.ke/" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">
                                 Instagram
                             </a>
                             <a href="https://www.linkedin.com/company/reach-design-studio/" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base hover:opacity-60 transition-opacity">

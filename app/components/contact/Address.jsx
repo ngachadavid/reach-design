@@ -55,7 +55,7 @@ export default function Address() {
 
                             {/* Links */}
                             <div className="col-span-2 flex flex-col gap-2 text-lg tracking-tight opacity-90">
-                                <a href="https://instagram.com" className="hover:opacity-60 transition-opacity">
+                                <a href="https://www.instagram.com/reachstudio.ke/" className="hover:opacity-60 transition-opacity">
                                     Instagram
                                 </a>
                                 <a href="https://www.linkedin.com/company/reach-design-studio/" className="hover:opacity-60 transition-opacity">
