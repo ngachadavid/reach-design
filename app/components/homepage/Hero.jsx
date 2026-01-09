@@ -64,7 +64,16 @@ export default function ParallaxHero() {
     };
   }, [heroData]);
 
-  if (!heroData) return null; 
+  // Loading skeleton - replaces the "return null"
+  if (!heroData) {
+    return (
+      <div className="relative">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="h-screen w-full bg-white/70 animate-pulse" />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="relative">
@@ -83,11 +92,11 @@ export default function ParallaxHero() {
 
                 <div className="col-span-12 md:col-span-4">
                   {index === 0 ? (
-                    <h1 className="text-lg md:text-xl font-(family-name:--font-cormorant)">
+                    <h1 className="text-lg md:text-xl" style={{ fontFamily: 'var(--font-cormorant)' }}>
                       Reach Design Studios
                     </h1>
                   ) : (
-                    <p className="text-lg md:text-xl font-(family-name:--font-cormorant)">
+                    <p className="text-lg md:text-xl" style={{ fontFamily: 'var(--font-cormorant)' }}>
                       Reach Design Studios
                     </p>
                   )}
