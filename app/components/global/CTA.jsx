@@ -12,7 +12,7 @@ export default function CTA() {
           <div className="flex items-center gap-6">
             <img
               src="/images/cta.svg"
-              alt=""
+              alt="Call to Action Illustration"
               className="w-40 md:w-48 h-40 md:h-48 object-contain"
             />
 

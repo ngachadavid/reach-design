@@ -6,19 +6,23 @@ import { Divide } from "lucide-react";
 import DividerArrow3 from "../global/DividerArrow3";
 
 const reasons = [
-    {
-        image: "/icons/career.svg",
-        text: "A collaborative culture where ideas are shared openly and creativity thrives across disciplines.",
-    },
-    {
-        image: "/icons/career1.svg",
-        text: "Opportunities to grow through meaningful projects that challenge how architecture is researched, designed, and built.",
-    },
-    {
-        image: "/icons/career3.svg",
-        text: "A forward-thinking environment that embraces technology, sustainability, and experimentation.",
-    },
+  {
+    image: "/icons/career.svg",
+    alt: "Icon representing collaborative culture",
+    text: "A collaborative culture where ideas are shared openly and creativity thrives across disciplines.",
+  },
+  {
+    image: "/icons/career1.svg",
+    alt: "Icon representing growth and project opportunities",
+    text: "Opportunities to grow through meaningful projects that challenge how architecture is researched, designed, and built.",
+  },
+  {
+    image: "/icons/career3.svg",
+    alt: "Icon representing forward-thinking and sustainable environment",
+    text: "A forward-thinking environment that embraces technology, sustainability, and experimentation.",
+  },
 ];
+
 
 export default function Careers() {
     const [isVisible, setIsVisible] = useState(false);
@@ -65,7 +69,7 @@ export default function Careers() {
                                 <div className="shrink-0 flex items-center justify-center">
                                     <img
                                         src={reason.image}
-                                        alt=""
+                                         alt={reason.alt}
                                         className="w-20 h-20 object-contain"
                                     />
                                 </div>
